@@ -10,7 +10,7 @@ export default function Home() {
         fontFamily: "Arial, sans-serif",
       }}
     >
-      Hello World! — From Iván Eduardo Sepúlveda Gomez
+      Hello World! — From Iván Eduardo Sepúlveda Gómez
     </main>
   );
 }
