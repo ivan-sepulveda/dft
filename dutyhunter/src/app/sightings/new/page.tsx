@@ -6,7 +6,7 @@ import { createClient } from '@/lib/supabase/client'
 import Combobox from '@/components/Combobox'
 
 type Airport = { id: string; iata_code: string; airport_name: string }
-type Store = { id: string; store_name: string | null; terminal: string }
+type Store = { id: string; store_name: string | null; terminal: string; nearest_gate: string | null }
 type Product = { id: string; product_line: string; brands: { name: string } | null }
 
 export default function NewSightingPage() {
@@ -68,10 +68,10 @@ export default function NewSightingPage() {
       return
     }
 
-    async function loadStores() {
+  async function loadStores() {
       const { data } = await supabase
         .from('stores')
-        .select('id, store_name, terminal')
+        .select('id, store_name, terminal, nearest_gate')
         .eq('airport_id', airportId)
         .order('terminal')
 
@@ -142,7 +142,7 @@ export default function NewSightingPage() {
                 />
       </div>
 
-        <div style={{ marginBottom: '16px' }}>
+      <div style={{ marginBottom: '16px' }}>
           <label style={labelStyle}>Store</label>
           <select
             value={storeId}
@@ -157,27 +157,24 @@ export default function NewSightingPage() {
             {stores.map((s) => (
               <option key={s.id} value={s.id}>
                 {s.store_name ?? 'Duty free'} — Terminal {s.terminal}
+                {s.nearest_gate ? ` (Near ${s.nearest_gate})` : ''}
               </option>
             ))}
           </select>
-        </div>
+      </div>
 
-        <div style={{ marginBottom: '16px' }}>
+      <div style={{ marginBottom: '16px' }}>
           <label style={labelStyle}>Product</label>
-          <select
+          <Combobox
+            options={products.map((p) => ({
+              id: p.id,
+              label: p.brands?.name ? `${p.brands.name} — ${p.product_line}` : p.product_line,
+            }))}
             value={productId}
-            onChange={(e) => setProductId(e.target.value)}
-            style={inputStyle}
-            required
-          >
-            <option value="">Select a product</option>
-            {products.map((p) => (
-              <option key={p.id} value={p.id}>
-                {p.brands?.name ? `${p.brands.name} — ` : ''}{p.product_line}
-              </option>
-            ))}
-          </select>
-        </div>
+            onChange={setProductId}
+            placeholder="Search products…"
+          />
+      </div>
 
         <div style={{ marginBottom: '16px' }}>
           <label style={labelStyle}>Date seen</label>

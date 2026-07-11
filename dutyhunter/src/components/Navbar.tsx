@@ -15,24 +15,31 @@ export default function Navbar() {
 
   useEffect(() => {
     async function loadUser() {
-      const { data: { user } } = await supabase.auth.getUser()
+      try {
+        const { data: { user } } = await supabase.auth.getUser()
 
-      if (!user) {
+        if (!user) {
+          setUsername(null)
+          return
+        }
+
+        const { data: profile, error: profileError } = await supabase
+          .from('profiles')
+          .select('username')
+          .eq('id', user.id)
+          .single()
+
+        if (profileError) {
+          console.error('Failed to load profile:', profileError)
+        }
+
+        setUsername(profile?.username ?? null)
+      } catch (err) {
+        console.error('loadUser crashed:', err)
         setUsername(null)
+      } finally {
         setLoading(false)
-        return
       }
-
-    const { data: profile, error: profileError } = await supabase
-        .from('profiles')
-        .select('username')
-        .eq('id', user.id)
-        .single()
-    if (profileError) {
-    console.error('Failed to load profile:', profileError)
-    }
-      setUsername(profile?.username ?? null)
-      setLoading(false)
     }
 
     loadUser()
