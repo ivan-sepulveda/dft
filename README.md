@@ -29,23 +29,25 @@ Airport
 A user reports a sighting: a specific product, seen at a specific store, inside a specific airport. Sightings may optionally include notes and photos.
 
 ## Project structure  
-dutyhunter/  
-├── src/  
-│   ├── app/                # Next.js App Router pages
-│   │   ├── signup/  
-│   │   ├── login/  
-│   │   └── sightings/new/  
-│   ├── components/       # Shared React components (Navbar, Combobox, etc.)  
+'''
+dutyhunter/
+├── src/
+│   ├── app/              # Next.js App Router pages
+│   │   ├── signup/
+│   │   ├── login/
+│   │   └── sightings/new/
+│   ├── components/       # Shared React components (Navbar, Combobox, etc.)
 │   └── lib/
-│       └── supabase/     # Supabase client setup  
+│       └── supabase/     # Supabase client setup
 └── ...
 
 db/
-├── schema/                  # CREATE TABLE statements, constraints, triggers  
-├── policies/                 # Row Level Security policies, one file per table  
-├── grants/                   # Role-level GRANT statements  
-├── seeds/                    # Reference data (airports, brands, categories, products)  
+├── schema/                # CREATE TABLE statements, constraints, triggers
+├── policies/               # Row Level Security policies, one file per table
+├── grants/                 # Role-level GRANT statements
+├── seeds/                  # Reference data (airports, brands, categories, products)
 └── README.md
+'''
 
 ## Getting started
 
