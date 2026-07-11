@@ -29,7 +29,7 @@ Airport
 A user reports a sighting: a specific product, seen at a specific store, inside a specific airport. Sightings may optionally include notes and photos.
 
 ## Project structure
-dutyhunter/
+dutyhunter/  
 ├── src/  
 │   ├── app/                # Next.js App Router pages
 │   │   ├── signup/  
