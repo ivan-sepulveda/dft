@@ -30,11 +30,11 @@ A user reports a sighting: a specific product, seen at a specific store, inside 
 
 ## Project structure
 dutyhunter/
-├── src/
-│   ├── app/              # Next.js App Router pages
-│   │   ├── signup/
-│   │   ├── login/
-│   │   └── sightings/new/
+├── src/  
+│   ├── app/                # Next.js App Router pages
+│   │   ├── signup/  
+│   │   ├── login/  
+│   │   └── sightings/new/  
 │   ├── components/       # Shared React components (Navbar, Combobox, etc.)
 │   └── lib/
 │       └── supabase/     # Supabase client setup
