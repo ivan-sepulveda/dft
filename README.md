@@ -41,8 +41,8 @@ dutyhunter/
 └── ...
 
 db/
-├── schema/                # CREATE TABLE statements, constraints, triggers
-├── policies/               # Row Level Security policies, one file per table
+├── schema/.                 # CREATE TABLE statements, constraints, triggers
+├── policies/.                # Row Level Security policies, one file per table
 ├── grants/                 # Role-level GRANT statements
 ├── seeds/                  # Reference data (airports, brands, categories, products)
 └── README.md
