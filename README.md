@@ -72,3 +72,8 @@ When setting up a fresh Supabase project, run the SQL files in this order:
 ## Status
 
 Early development. Currently working: signup, login, session-aware navbar, sighting submission form with searchable airport/product selectors, and photo upload with client-side compression (handles large phone camera files and iPhone HEIC conversion).
+
+## TODO
+ 
+- [ ] Auto detect language and translate accordingly
+- [ ] Sightings feed
