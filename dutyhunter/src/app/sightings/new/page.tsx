@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import Combobox from '@/components/Combobox'
+import imageCompression from 'browser-image-compression'
 
 type Airport = { id: string; iata_code: string; airport_name: string }
 type Store = { id: string; store_name: string | null; terminal: string; nearest_gate: string | null }
@@ -22,6 +23,11 @@ export default function NewSightingPage() {
   const [productId, setProductId] = useState('')
   const [seenAt, setSeenAt] = useState(() => new Date().toISOString().slice(0, 10))
   const [notes, setNotes] = useState('')
+
+  const [photoFile, setPhotoFile] = useState<File | null>(null)
+  const [photoPreview, setPhotoPreview] = useState<string | null>(null)
+  const [compressing, setCompressing] = useState(false)
+  const [photoError, setPhotoError] = useState<string | null>(null)
 
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState(false)
@@ -81,6 +87,41 @@ export default function NewSightingPage() {
     loadStores()
   }, [airportId])
 
+
+  async function handlePhotoChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0]
+    setPhotoError(null)
+
+    if (!file) {
+      setPhotoFile(null)
+      setPhotoPreview(null)
+      return
+    }
+
+    setCompressing(true)
+
+    try {
+      const compressed = await imageCompression(file, {
+        maxSizeMB: 1.5,
+        maxWidthOrHeight: 1600,
+        useWebWorker: true,
+        fileType: 'image/jpeg',
+      })
+
+      setPhotoFile(compressed)
+      setPhotoPreview(URL.createObjectURL(compressed))
+    } catch (err) {
+      console.error('Photo compression failed:', err)
+      setPhotoError(
+        'Could not process that photo. Try a different one, or a standard JPEG/PNG.'
+      )
+      setPhotoFile(null)
+      setPhotoPreview(null)
+    } finally {
+      setCompressing(false)
+    }
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setError(null)
@@ -115,9 +156,40 @@ export default function NewSightingPage() {
       return
     }
 
+    if (photoFile) {
+      const { data: newSighting } = await supabase
+        .from('sightings')
+        .select('id')
+        .eq('user_id', user.id)
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .single()
+
+      if (newSighting) {
+        const fileExt = 'jpg'
+        const filePath = `${user.id}/${newSighting.id}-${Date.now()}.${fileExt}`
+
+        const { error: uploadError } = await supabase.storage
+          .from('sighting-photos')
+          .upload(filePath, photoFile)
+
+        if (uploadError) {
+          console.error('Photo upload failed:', uploadError)
+        } else {
+          await supabase.from('sighting_photos').insert({
+            sighting_id: newSighting.id,
+            storage_path: filePath,
+            uploaded_by: user.id,
+          })
+        }
+      }
+    }
+
     setSuccess(true)
     setProductId('')
     setNotes('')
+    setPhotoFile(null)
+    setPhotoPreview(null)
   }
 
   if (checkingAuth) return null
@@ -196,6 +268,40 @@ export default function NewSightingPage() {
             style={{ ...inputStyle, resize: 'vertical' }}
           />
         </div>
+<div style={{ marginBottom: '16px' }}>
+          <label style={labelStyle}>Photo (optional)</label>
+          <input
+            type="file"
+            accept="image/*"
+            capture="environment"
+            onChange={handlePhotoChange}
+            disabled={compressing}
+            style={{ fontSize: '14px' }}
+          />
+          {compressing && (
+            <p style={{ fontSize: '13px', color: '#888', marginTop: '6px' }}>
+              Processing photo…
+            </p>
+          )}
+          {photoError && (
+            <p style={{ fontSize: '13px', color: '#b91c1c', marginTop: '6px' }}>
+              {photoError}
+            </p>
+          )}
+          {photoPreview && (
+            <img
+              src={photoPreview}
+              alt="Preview"
+              style={{
+                marginTop: '8px',
+                maxWidth: '100%',
+                maxHeight: '200px',
+                borderRadius: '8px',
+                objectFit: 'cover',
+              }}
+            />
+          )}
+        </div>
 
         {error && (
           <p role="alert" style={errorStyle}>{error}</p>
@@ -204,9 +310,9 @@ export default function NewSightingPage() {
           <p style={successStyle}>Sighting added! 🎉</p>
         )}
 
-        <button
+<button
           type="submit"
-          disabled={loading}
+          disabled={loading || compressing}
           style={{
             width: '100%',
             marginTop: '16px',

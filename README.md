@@ -48,15 +48,15 @@ db/
 ├── seeds/                  # Reference data (airports, brands, categories, products)
 └── README.md
 ```
-
 ## Getting started
 
 1. Clone the repo and `cd dutyhunter`
 2. Install dependencies: `npm install`
 3. Copy `.env.local.example` to `.env.local` and fill in your Supabase project URL and anon key
-4. Run the database setup scripts in `db/` (schema → grants → policies → seeds, in that order)
-5. Run the dev server: `npm run dev`
-6. Visit `localhost:3000`
+4. In the Supabase Dashboard, create a **Storage bucket** named `sighting-photos` (private, not public)
+5. Run the database setup scripts in `db/` (schema → grants → policies → seeds, in that order)
+6. Run the dev server: `npm run dev`
+7. Visit `localhost:3000`
 
 ## Database setup order
 
@@ -66,9 +66,9 @@ When setting up a fresh Supabase project, run the SQL files in this order:
 2. `db/schema/02_constraints.sql`
 3. `db/schema/03_triggers.sql`
 4. `db/grants/grants.sql`
-5. `db/policies/*.sql`
+5. `db/policies/*.sql` (including `storage.sql` — requires the `sighting-photos` bucket to already exist, see step 4 above)
 6. `db/seeds/*.sql` (optional — sample/reference data)
 
 ## Status
 
-Early development. Currently working: signup, login, session-aware navbar, and sighting submission form with searchable airport/product selectors.
+Early development. Currently working: signup, login, session-aware navbar, sighting submission form with searchable airport/product selectors, and photo upload with client-side compression (handles large phone camera files and iPhone HEIC conversion).
