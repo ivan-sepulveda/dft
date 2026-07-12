@@ -1,10 +1,11 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import Combobox from '@/components/Combobox'
 import imageCompression from 'browser-image-compression'
+
 
 type Airport = { id: string; iata_code: string; airport_name: string }
 type Store = { id: string; store_name: string | null; terminal: string; nearest_gate: string | null }
@@ -14,6 +15,7 @@ export default function NewSightingPage() {
   const router = useRouter()
   const supabase = createClient()
 
+  const fileInputRef = useRef<HTMLInputElement>(null)
   const [airports, setAirports] = useState<Airport[]>([])
   const [stores, setStores] = useState<Store[]>([])
   const [products, setProducts] = useState<Product[]>([])
@@ -270,14 +272,40 @@ export default function NewSightingPage() {
         </div>
 <div style={{ marginBottom: '16px' }}>
           <label style={labelStyle}>Photo (optional)</label>
+
           <input
+            ref={fileInputRef}
             type="file"
             accept="image/*"
             capture="environment"
             onChange={handlePhotoChange}
             disabled={compressing}
-            style={{ fontSize: '14px' }}
+            style={{ display: 'none' }}
           />
+
+          <button
+            type="button"
+            onClick={() => fileInputRef.current?.click()}
+            disabled={compressing}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              width: '100%',
+              padding: '12px 16px',
+              fontSize: '14px',
+              fontWeight: 500,
+              color: '#fff',
+              background: '#1a1a1a',
+              border: '1px dashed #444',
+              borderRadius: '8px',
+              cursor: compressing ? 'not-allowed' : 'pointer',
+            }}
+          >
+            📷 {photoFile ? 'Change photo' : 'Add a photo'}
+          </button>
+
           {compressing && (
             <p style={{ fontSize: '13px', color: '#888', marginTop: '6px' }}>
               Processing photo…
