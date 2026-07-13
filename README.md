@@ -76,4 +76,6 @@ Early development. Currently working: signup, login, session-aware navbar, sight
 ## TODO
  
 - [ ] Auto detect language and translate accordingly
+- [ ] Pick a product and load all sightings
+- [ ] Pick an airport and load all sightings
 - [ ] Sightings feed
