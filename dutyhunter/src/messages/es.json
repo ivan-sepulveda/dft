@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "login": "Iniciar sesión",
+    "signup": "Registrarse",
+    "logout": "Cerrar sesión"
+  },
+  "auth": {
+    "loginTitle": "Inicia sesión en Duty Hunter",
+    "signupTitle": "Crea una cuenta",
+    "emailLabel": "Correo electrónico",
+    "passwordLabel": "Contraseña",
+    "checkEmailMessage": "Revisa tu correo para confirmar tu cuenta"
+  },
+  "sightings": {
+    "newSighting": "Nuevo avistamiento",
+    "airportLabel": "Aeropuerto",
+    "storeLabel": "Tienda",
+    "productLabel": "Producto",
+    "notesLabel": "Notas (opcional)",
+    "submitButton": "Enviar avistamiento"
+  }
+}

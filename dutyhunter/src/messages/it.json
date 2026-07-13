@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "login": "Accedi",
+    "signup": "Registrati",
+    "logout": "Esci"
+  },
+  "auth": {
+    "loginTitle": "Accedi a Duty Hunter",
+    "signupTitle": "Crea un account",
+    "emailLabel": "E-mail",
+    "passwordLabel": "Password",
+    "checkEmailMessage": "Controlla la tua e-mail per confermare l'account"
+  },
+  "sightings": {
+    "newSighting": "Nuovo avvistamento",
+    "airportLabel": "Aeroporto",
+    "storeLabel": "Negozio",
+    "productLabel": "Prodotto",
+    "notesLabel": "Note (facoltativo)",
+    "submitButton": "Invia avvistamento"
+  }
+}
