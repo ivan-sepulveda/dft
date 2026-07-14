@@ -2,7 +2,10 @@
   "nav": {
     "login": "Iniciar sesión",
     "signup": "Registrarse",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "browse": "Explorar",
+    "products": "Productos",
+    "airports": "Aeropuertos"
   },
   "auth": {
     "loginTitle": "Inicia sesión en Duty Hunter",
@@ -56,5 +59,12 @@
   "welcome": {
     "title": "Bienvenido a Duty Hunter",
     "subtitle": "Viajeros ayudándose mutuamente a encontrar cigarrillos, whiskies y fragancias raros en tiendas libres de impuestos alrededor del mundo."
-}
+  },
+  "airportsPage": {
+    "title": "Aeropuertos",
+    "listView": "Vista de lista",
+    "mapView": "Vista de mapa",
+    "searchPlaceholder": "Buscar aeropuertos…",
+    "noResults": "No se encontraron aeropuertos."
+  }
 }

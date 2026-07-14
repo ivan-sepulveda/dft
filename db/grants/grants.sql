@@ -27,3 +27,7 @@ TO authenticated;
 -- delete (RLS policies restrict insert/delete to their own uploads).
 GRANT SELECT, INSERT, DELETE ON public.sighting_photos
 TO authenticated;
+
+GRANT SELECT, INSERT, DELETE ON favorite_brands TO authenticated;
+GRANT SELECT, INSERT, DELETE ON favorite_products TO authenticated;
+GRANT SELECT, INSERT, DELETE ON favorite_airports TO authenticated;

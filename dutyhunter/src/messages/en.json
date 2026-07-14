@@ -2,7 +2,10 @@
   "nav": {
     "login": "Log in",
     "signup": "Sign up",
-    "logout": "Log out"
+    "logout": "Log out",
+    "browse": "Browse",
+    "products": "Products",
+    "airports": "Airports"
   },
   "auth": {
     "loginTitle": "Log in to Duty Hunter",
@@ -56,5 +59,12 @@
   "welcome": {
     "title": "Welcome to Duty Hunter",
     "subtitle": "Fellow travelers helping each other find rare cigarettes, whiskeys, and fragrances at duty-free stores around the world."
+  },
+  "airportsPage": {
+    "title": "Airports",
+    "listView": "List view",
+    "mapView": "Map view",
+    "searchPlaceholder": "Search airports…",
+    "noResults": "No airports found."
   }
 }

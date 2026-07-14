@@ -2,7 +2,10 @@
   "nav": {
     "login": "Connexion",
     "signup": "S'inscrire",
-    "logout": "Déconnexion"
+    "logout": "Déconnexion",
+    "browse": "Parcourir",
+    "products": "Produits",
+    "airports": "Aéroports"
   },
   "auth": {
     "loginTitle": "Connectez-vous à Duty Hunter",
@@ -29,9 +32,9 @@
     "productLabel": "Produit",
     "notesLabel": "Notes (facultatif)",
     "submitButton": "Envoyer l'observation",
+    "pageTitle": "Signaler une observation",
     "dateLabel": "Date d'observation",
     "photoLabel": "Photo (facultatif)",
-    "pageTitle": "Signaler une observation",
     "searchAirports": "Rechercher des aéroports…",
     "searchProducts": "Rechercher des produits…",
     "selectStore": "Sélectionnez une boutique",
@@ -56,5 +59,12 @@
   "welcome": {
     "title": "Bienvenue sur Duty Hunter",
     "subtitle": "Des voyageurs qui s'entraident pour trouver des cigarettes, whiskies et parfums rares dans les boutiques hors taxes du monde entier."
+  },
+  "airportsPage": {
+    "title": "Aéroports",
+    "listView": "Vue liste",
+    "mapView": "Vue carte",
+    "searchPlaceholder": "Rechercher des aéroports…",
+    "noResults": "Aucun aéroport trouvé."
   }
 }

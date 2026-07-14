@@ -14,6 +14,7 @@ export default function Navbar() {
   const [username, setUsername] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [browseOpen, setBrowseOpen] = useState(false)
 
   useEffect(() => {
     async function loadUser() {
@@ -74,12 +75,82 @@ export default function Navbar() {
         color: '#fff',
       }}
     >
-      <Link
-        href="/"
-        style={{ fontWeight: 700, fontSize: '18px', color: '#fff', textDecoration: 'none' }}
-      >
-        Duty Hunter
-      </Link>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+        <Link
+          href="/"
+          style={{ fontWeight: 700, fontSize: '18px', color: '#fff', textDecoration: 'none' }}
+        >
+          Duty Hunter
+        </Link>
+
+        {!loading && username && (
+          <div style={{ position: 'relative' }}>
+            <button
+              onClick={() => setBrowseOpen((open) => !open)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                background: 'none',
+                border: 'none',
+                fontSize: '14px',
+                fontWeight: 500,
+                cursor: 'pointer',
+                padding: '6px 10px',
+                borderRadius: '8px',
+                color: '#fff',
+              }}
+            >
+              {tNav('browse')} ▾
+            </button>
+
+            {browseOpen && (
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 0,
+                  top: '36px',
+                  background: '#fff',
+                  border: '1px solid #e5e5e5',
+                  borderRadius: '8px',
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+                  minWidth: '160px',
+                  overflow: 'hidden',
+                  zIndex: 10,
+                }}
+              >
+                <Link
+                  href="/products"
+                  onClick={() => setBrowseOpen(false)}
+                  style={{
+                    display: 'block',
+                    padding: '10px 14px',
+                    fontSize: '14px',
+                    color: '#111',
+                    textDecoration: 'none',
+                  }}
+                >
+                  {tNav('products')}
+                </Link>
+                <Link
+                  href="/airports"
+                  onClick={() => setBrowseOpen(false)}
+                  style={{
+                    display: 'block',
+                    padding: '10px 14px',
+                    fontSize: '14px',
+                    color: '#111',
+                    textDecoration: 'none',
+                    borderTop: '1px solid #f0f0f0',
+                  }}
+                >
+                  {tNav('airports')}
+                </Link>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
 
       <div>
         {loading ? null : username ? (

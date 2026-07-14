@@ -2,7 +2,10 @@
   "nav": {
     "login": "Accedi",
     "signup": "Registrati",
-    "logout": "Esci"
+    "logout": "Esci",
+    "browse": "Esplora",
+    "products": "Prodotti",
+    "airports": "Aeroporti"
   },
   "auth": {
     "loginTitle": "Accedi a Duty Hunter",
@@ -56,5 +59,12 @@
   "welcome": {
     "title": "Benvenuto su Duty Hunter",
     "subtitle": "Viaggiatori che si aiutano a vicenda a trovare sigarette, whisky e profumi rari nei negozi duty-free di tutto il mondo."
+  },
+  "airportsPage": {
+    "title": "Aeroporti",
+    "listView": "Vista elenco",
+    "mapView": "Vista mappa",
+    "searchPlaceholder": "Cerca aeroporti…",
+    "noResults": "Nessun aeroporto trovato."
   }
 }
