@@ -62,6 +62,8 @@
   },
   "airportsPage": {
     "title": "Aeroporti",
+    "addToFavorites": "Aggiungi ai preferiti",
+    "removeFromFavorites": "Rimuovi dai preferiti",
     "listView": "Vista elenco",
     "mapView": "Vista mappa",
     "searchPlaceholder": "Cerca aeroporti…",

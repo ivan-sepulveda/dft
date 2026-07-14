@@ -364,6 +364,18 @@ TRANSLATIONS = {
             "fr": "Aéroports",
             "it": "Aeroporti",
         },
+        "addToFavorites": {
+            "en": "Add to favorites",
+            "es": "Agregar a favoritos",
+            "fr": "Ajouter aux favoris",
+            "it": "Aggiungi ai preferiti",
+        },
+        "removeFromFavorites": {
+            "en": "Remove from favorites",
+            "es": "Quitar de favoritos",
+            "fr": "Retirer des favoris",
+            "it": "Rimuovi dai preferiti",
+        },
         "listView": {
             "en": "List view",
             "es": "Vista de lista",

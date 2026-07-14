@@ -62,6 +62,8 @@
   },
   "airportsPage": {
     "title": "Airports",
+    "addToFavorites": "Add to favorites",
+    "removeFromFavorites": "Remove from favorites",
     "listView": "List view",
     "mapView": "Map view",
     "searchPlaceholder": "Search airports…",
