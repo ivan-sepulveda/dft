@@ -7,6 +7,7 @@ Duty Hunter is a web app for tracking duty-free products spotted at airport stor
 
 - **Frontend:** Next.js (App Router) with TypeScript
 - **Styling:** Tailwind CSS
+- **Internationalization:** next-intl (en, es, fr, it)
 - **Backend / API:** Supabase
 - **Database:** Supabase Postgres
 - **Authentication:** Supabase Auth
@@ -32,13 +33,25 @@ A user reports a sighting: a specific product, seen at a specific store, inside 
 ```
 dutyhunter/
 ├── src/
-│   ├── app/              # Next.js App Router pages
-│   │   ├── signup/
-│   │   ├── login/
-│   │   └── sightings/new/
+│   ├── app/
+│   │   ├── layout.tsx        # (if present) root layout
+│   │   ├── globals.css
+│   │   └── [locale]/          # locale-prefixed routes (en, es, fr, it)
+│   │       ├── layout.tsx     # locale layout, NextIntlClientProvider
+│   │       ├── page.tsx       # landing/welcome page
+│   │       ├── home/
+│   │       ├── login/
+│   │       ├── signup/
+│   │       ├── check-email/
+│   │       └── sightings/new/
 │   ├── components/       # Shared React components (Navbar, Combobox, etc.)
+│   ├── i18n/              # next-intl routing, navigation, request config
+│   ├── messages/          # Translation JSON files (en.json, es.json, fr.json, it.json)
 │   └── lib/
 │       └── supabase/     # Supabase client setup
+├── scripts/
+│   └── check-i18n.js      # Verifies all locale files have matching keys (runs before build)
+├── proxy.ts                # next-intl locale detection (formerly middleware.ts)
 └── ...
 
 db/
@@ -69,13 +82,15 @@ When setting up a fresh Supabase project, run the SQL files in this order:
 5. `db/policies/*.sql` (including `storage.sql` — requires the `sighting-photos` bucket to already exist, see step 4 above)
 6. `db/seeds/*.sql` (optional — sample/reference data)
 
+## Internationalization
+
+The app auto-detects the visitor's browser language and routes them to a locale-prefixed URL (`/en`, `/es`, `/fr`, `/it`), powered by `next-intl`. Translation strings live in `src/messages/*.json`. Before every build, `npm run check:i18n` verifies all locale files have matching keys, so a missing translation fails the build instead of shipping broken text.
+
 ## Status
 
-Early development. Currently working: signup, login, session-aware navbar, sighting submission form with searchable airport/product selectors, and photo upload with client-side compression (handles large phone camera files and iPhone HEIC conversion).
+Early development. Currently working: signup, login, session-aware navbar, sighting submission form with searchable airport/product selectors, photo upload with client-side compression (handles large phone camera files and iPhone HEIC conversion), and full internationalization (English, Spanish, French, Italian) with automatic browser-language detection.
 
 ## TODO
- 
-- [ ] Auto detect language and translate accordingly
 - [ ] Pick a product and load all sightings
 - [ ] Pick an airport and load all sightings
 - [ ] Sightings feed

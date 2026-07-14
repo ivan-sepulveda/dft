@@ -1,12 +1,15 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
+import { useRouter } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
 
 export default function SignUpPage() {
   const router = useRouter()
   const supabase = createClient()
+  const tAuth = useTranslations('auth')
+  const tNav = useTranslations('nav')
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -62,10 +65,10 @@ export default function SignUpPage() {
         }}
       >
         <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '4px' }}>
-          Create your account
+          {tAuth('signupTitle')}
         </h1>
         <p style={{ fontSize: '14px', color: '#666', marginBottom: '24px' }}>
-          Track duty-free sightings at airports around the world.
+          {tAuth('subtitle')}
         </p>
 
         <form onSubmit={handleSubmit}>
@@ -79,7 +82,7 @@ export default function SignUpPage() {
                 marginBottom: '6px',
               }}
             >
-              Username
+              {tAuth('usernameLabel')}
             </label>
             <input
               id="username"
@@ -101,7 +104,7 @@ export default function SignUpPage() {
                 marginBottom: '6px',
               }}
             >
-              Email
+              {tAuth('emailLabel')}
             </label>
             <input
               id="email"
@@ -123,7 +126,7 @@ export default function SignUpPage() {
                 marginBottom: '6px',
               }}
             >
-              Password
+              {tAuth('passwordLabel')}
             </label>
             <input
               id="password"
@@ -135,7 +138,7 @@ export default function SignUpPage() {
               style={inputStyle}
             />
             <p style={{ fontSize: '12px', color: '#888', marginTop: '4px' }}>
-              At least 6 characters
+              {tAuth('passwordHint')}
             </p>
           </div>
 
@@ -172,7 +175,7 @@ export default function SignUpPage() {
               cursor: loading ? 'not-allowed' : 'pointer',
             }}
           >
-            {loading ? 'Creating account…' : 'Sign up'}
+            {loading ? tAuth('creatingAccount') : tNav('signup')}
           </button>
         </form>
       </div>

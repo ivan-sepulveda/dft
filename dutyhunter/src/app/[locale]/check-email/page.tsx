@@ -1,4 +1,8 @@
-export default function CheckEmailPage() {
+import { getTranslations } from 'next-intl/server'
+
+export default async function CheckEmailPage() {
+  const t = await getTranslations('auth')
+
   return (
     <div
       style={{
@@ -11,10 +15,10 @@ export default function CheckEmailPage() {
     >
       <div style={{ maxWidth: '400px', textAlign: 'center' }}>
         <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '12px' }}>
-          Check your email
+          {t('checkEmailTitle')}
         </h1>
         <p style={{ fontSize: '15px', color: '#666' }}>
-          We sent you a confirmation link. Click it to activate your account, then come back and log in.
+          {t('checkEmailBody')}
         </p>
       </div>
     </div>

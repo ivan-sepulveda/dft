@@ -1,12 +1,15 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
+import { useRouter } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
 
 export default function LoginPage() {
   const router = useRouter()
   const supabase = createClient()
+  const tAuth = useTranslations('auth')
+  const tNav = useTranslations('nav')
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -89,10 +92,10 @@ export default function LoginPage() {
           }}
         >
           <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '8px' }}>
-            You&apos;re logged in
+            {tAuth('loggedInTitle')}
           </h1>
           <p style={{ fontSize: '14px', color: '#666', marginBottom: '24px' }}>
-            Signed in as <strong>{currentUsername}</strong>
+            {tAuth('signedInAs')} <strong>{currentUsername}</strong>
           </p>
 
           <button
@@ -110,7 +113,7 @@ export default function LoginPage() {
               marginBottom: '10px',
             }}
           >
-            Go home
+            {tAuth('goHome')}
           </button>
 
           <button
@@ -127,7 +130,7 @@ export default function LoginPage() {
               cursor: 'pointer',
             }}
           >
-            Sign out
+            {tNav('logout')}
           </button>
         </div>
       </div>
@@ -155,10 +158,10 @@ export default function LoginPage() {
         }}
       >
         <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '4px' }}>
-          Log in
+          {tAuth('loginTitle')}
         </h1>
         <p style={{ fontSize: '14px', color: '#666', marginBottom: '24px' }}>
-          Welcome back to Duty Hunter.
+          {tAuth('loginSubtitle')}
         </p>
 
         <form onSubmit={handleSubmit}>
@@ -172,7 +175,7 @@ export default function LoginPage() {
                 marginBottom: '6px',
               }}
             >
-              Email
+              {tAuth('emailLabel')}
             </label>
             <input
               id="email"
@@ -194,7 +197,7 @@ export default function LoginPage() {
                 marginBottom: '6px',
               }}
             >
-              Password
+              {tAuth('passwordLabel')}
             </label>
             <input
               id="password"
@@ -239,7 +242,7 @@ export default function LoginPage() {
               cursor: loading ? 'not-allowed' : 'pointer',
             }}
           >
-            {loading ? 'Logging in…' : 'Log in'}
+            {loading ? tAuth('loggingIn') : tAuth('loginTitle')}
           </button>
         </form>
       </div>

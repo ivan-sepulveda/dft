@@ -9,7 +9,18 @@
     "signupTitle": "Crea una cuenta",
     "emailLabel": "Correo electrónico",
     "passwordLabel": "Contraseña",
-    "checkEmailMessage": "Revisa tu correo para confirmar tu cuenta"
+    "checkEmailMessage": "Revisa tu correo para confirmar tu cuenta",
+    "subtitle": "Rastrea avistamientos de artículos libres de impuestos en aeropuertos de todo el mundo.",
+    "usernameLabel": "Nombre de usuario",
+    "passwordHint": "Al menos 6 caracteres",
+    "creatingAccount": "Creando cuenta…",
+    "loggedInTitle": "Has iniciado sesión",
+    "signedInAs": "Sesión iniciada como",
+    "goHome": "Ir al inicio",
+    "loginSubtitle": "Bienvenido de nuevo a Duty Hunter.",
+    "loggingIn": "Iniciando sesión…",
+    "checkEmailTitle": "Revisa tu correo",
+    "checkEmailBody": "Te enviamos un enlace de confirmación. Haz clic en él para activar tu cuenta, luego vuelve e inicia sesión."
   },
   "sightings": {
     "newSighting": "Nuevo avistamiento",
@@ -17,6 +28,33 @@
     "storeLabel": "Tienda",
     "productLabel": "Producto",
     "notesLabel": "Notas (opcional)",
-    "submitButton": "Enviar avistamiento"
-  }
+    "submitButton": "Enviar avistamiento",
+    "pageTitle": "Reportar un avistamiento",
+    "dateLabel": "Fecha de avistamiento",
+    "photoLabel": "Foto (opcional)",
+    "searchAirports": "Buscar aeropuertos…",
+    "searchProducts": "Buscar productos…",
+    "selectStore": "Selecciona una tienda",
+    "selectAirportFirst": "Selecciona primero un aeropuerto",
+    "dutyFreeFallback": "Libre de impuestos",
+    "terminal": "Terminal",
+    "nearGate": "Cerca de",
+    "changePhoto": "Cambiar foto",
+    "addPhoto": "Agregar una foto",
+    "processingPhoto": "Procesando foto…",
+    "photoErrorMessage": "No se pudo procesar esa foto. Prueba con otra, o con un JPEG/PNG estándar.",
+    "selectAllFieldsError": "Selecciona un aeropuerto, tienda y producto.",
+    "mustBeLoggedInError": "Debes iniciar sesión.",
+    "sightingAdded": "¡Avistamiento agregado! 🎉",
+    "submitting": "Enviando…",
+    "noMatches": "Sin resultados"
+  },
+  "home": {
+    "title": "Inicio",
+    "placeholder": "Provisional — los 5 aeropuertos principales por ahora."
+  },
+  "welcome": {
+    "title": "Bienvenido a Duty Hunter",
+    "subtitle": "Viajeros ayudándose mutuamente a encontrar cigarrillos, whiskies y fragancias raros en tiendas libres de impuestos alrededor del mundo."
+}
 }

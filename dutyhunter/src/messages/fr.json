@@ -13,7 +13,14 @@
     "subtitle": "Suivez les observations de produits hors taxes dans les aéroports du monde entier.",
     "usernameLabel": "Nom d'utilisateur",
     "passwordHint": "Au moins 6 caractères",
-    "creatingAccount": "Création du compte…"
+    "creatingAccount": "Création du compte…",
+    "loggedInTitle": "Vous êtes connecté",
+    "signedInAs": "Connecté en tant que",
+    "goHome": "Retour à l'accueil",
+    "loginSubtitle": "Content de vous revoir sur Duty Hunter.",
+    "loggingIn": "Connexion en cours…",
+    "checkEmailTitle": "Vérifiez votre e-mail",
+    "checkEmailBody": "Nous vous avons envoyé un lien de confirmation. Cliquez dessus pour activer votre compte, puis revenez vous connecter."
   },
   "sightings": {
     "newSighting": "Nouvelle observation",
@@ -21,6 +28,33 @@
     "storeLabel": "Boutique",
     "productLabel": "Produit",
     "notesLabel": "Notes (facultatif)",
-    "submitButton": "Envoyer l'observation"
+    "submitButton": "Envoyer l'observation",
+    "dateLabel": "Date d'observation",
+    "photoLabel": "Photo (facultatif)",
+    "pageTitle": "Signaler une observation",
+    "searchAirports": "Rechercher des aéroports…",
+    "searchProducts": "Rechercher des produits…",
+    "selectStore": "Sélectionnez une boutique",
+    "selectAirportFirst": "Sélectionnez d'abord un aéroport",
+    "dutyFreeFallback": "Hors taxes",
+    "terminal": "Terminal",
+    "nearGate": "Près de",
+    "changePhoto": "Changer la photo",
+    "addPhoto": "Ajouter une photo",
+    "processingPhoto": "Traitement de la photo…",
+    "photoErrorMessage": "Impossible de traiter cette photo. Essayez-en une autre, ou un JPEG/PNG standard.",
+    "selectAllFieldsError": "Veuillez sélectionner un aéroport, une boutique et un produit.",
+    "mustBeLoggedInError": "Vous devez être connecté.",
+    "sightingAdded": "Observation ajoutée ! 🎉",
+    "submitting": "Envoi en cours…",
+    "noMatches": "Aucun résultat"
+  },
+  "home": {
+    "title": "Accueil",
+    "placeholder": "Provisoire — les 5 principaux aéroports pour l'instant."
+  },
+  "welcome": {
+    "title": "Bienvenue sur Duty Hunter",
+    "subtitle": "Des voyageurs qui s'entraident pour trouver des cigarettes, whiskies et parfums rares dans les boutiques hors taxes du monde entier."
   }
 }

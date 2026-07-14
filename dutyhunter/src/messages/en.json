@@ -13,7 +13,14 @@
     "subtitle": "Track duty-free sightings at airports around the world.",
     "usernameLabel": "Username",
     "passwordHint": "At least 6 characters",
-    "creatingAccount": "Creating account…"
+    "creatingAccount": "Creating account…",
+    "loggedInTitle": "You're logged in",
+    "signedInAs": "Signed in as",
+    "goHome": "Go home",
+    "loginSubtitle": "Welcome back to Duty Hunter.",
+    "loggingIn": "Logging in…",
+    "checkEmailTitle": "Check your email",
+    "checkEmailBody": "We sent you a confirmation link. Click it to activate your account, then come back and log in."
   },
   "sightings": {
     "newSighting": "New sighting",
@@ -21,6 +28,33 @@
     "storeLabel": "Store",
     "productLabel": "Product",
     "notesLabel": "Notes (optional)",
-    "submitButton": "Submit sighting"
+    "submitButton": "Submit sighting",
+    "pageTitle": "Report a sighting",
+    "dateLabel": "Date seen",
+    "photoLabel": "Photo (optional)",
+    "searchAirports": "Search airports…",
+    "searchProducts": "Search products…",
+    "selectStore": "Select a store",
+    "selectAirportFirst": "Select an airport first",
+    "dutyFreeFallback": "Duty free",
+    "terminal": "Terminal",
+    "nearGate": "Near",
+    "changePhoto": "Change photo",
+    "addPhoto": "Add a photo",
+    "processingPhoto": "Processing photo…",
+    "photoErrorMessage": "Could not process that photo. Try a different one, or a standard JPEG/PNG.",
+    "selectAllFieldsError": "Please select an airport, store, and product.",
+    "mustBeLoggedInError": "You must be logged in.",
+    "sightingAdded": "Sighting added! 🎉",
+    "submitting": "Submitting…",
+    "noMatches": "No matches"
+  },
+  "home": {
+    "title": "Home",
+    "placeholder": "Placeholder — top 5 airports for now."
+  },
+  "welcome": {
+    "title": "Welcome to Duty Hunter",
+    "subtitle": "Fellow travelers helping each other find rare cigarettes, whiskeys, and fragrances at duty-free stores around the world."
   }
 }

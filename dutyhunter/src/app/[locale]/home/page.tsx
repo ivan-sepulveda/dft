@@ -1,30 +1,25 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link, useRouter } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
 
-type Airport = {
-  id: string
-  iata_code: string
-  airport_name: string
-  city: string | null
-}
-
-export default function HomePage() {
+export default function Home() {
   const router = useRouter()
   const supabase = createClient()
+  const tWelcome = useTranslations('welcome')
+  const tNav = useTranslations('nav')
+  const tAuth = useTranslations('auth')
 
   const [checkingAuth, setCheckingAuth] = useState(true)
-  const [airports, setAirports] = useState<Airport[]>([])
 
   useEffect(() => {
     async function checkAuth() {
       const { data: { user } } = await supabase.auth.getUser()
 
-      if (!user) {
-        router.replace('/login')
+      if (user) {
+        router.replace('/home')
         return
       }
 
@@ -34,63 +29,58 @@ export default function HomePage() {
     checkAuth()
   }, [])
 
-  useEffect(() => {
-    async function loadAirports() {
-      const { data } = await supabase
-        .from('airports')
-        .select('id, iata_code, airport_name, city')
-        .order('iata_code')
-        .limit(5)
-
-      setAirports(data ?? [])
-    }
-
-    loadAirports()
-  }, [])
-
   if (checkingAuth) return null
 
   return (
-    <div style={{ padding: '32px', maxWidth: '600px', margin: '0 auto' }}>
-      <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '8px' }}>
-        Home
-      </h1>
-      <p style={{ fontSize: '14px', color: '#888', marginBottom: '24px' }}>
-        Placeholder — top 5 airports for now.
-      </p>
+    <main
+      style={{
+        minHeight: '80vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '32px',
+      }}
+    >
+      <div style={{ maxWidth: '560px', textAlign: 'center' }}>
+        <h1 style={{ fontSize: '32px', fontWeight: 700, marginBottom: '16px' }}>
+          {tWelcome('title')}
+        </h1>
+        <p style={{ fontSize: '17px', color: '#888', lineHeight: 1.6, marginBottom: '32px' }}>
+          {tWelcome('subtitle')}
+        </p>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        {airports.map((airport) => (
-          <div
-            key={airport.id}
+        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <Link
+            href="/login"
             style={{
-              padding: '14px 16px',
-              border: '1px solid #333',
+              padding: '12px 24px',
+              fontSize: '15px',
+              fontWeight: 600,
+              color: '#fff',
+              background: '#111',
               borderRadius: '8px',
+              textDecoration: 'none',
             }}
           >
-            <strong>{airport.iata_code}</strong> — {airport.airport_name}
-            {airport.city ? ` — ${airport.city}` : ''}
-          </div>
-        ))}
+            {tNav('login')}
+          </Link>
+          <Link
+            href="/signup"
+            style={{
+              padding: '12px 24px',
+              fontSize: '15px',
+              fontWeight: 600,
+              color: '#111',
+              background: '#fff',
+              border: '1px solid #d4d4d4',
+              borderRadius: '8px',
+              textDecoration: 'none',
+            }}
+          >
+            {tAuth('signupTitle')}
+          </Link>
+        </div>
       </div>
-
-      <Link
-        href="/sightings/new"
-        style={{
-          display: 'inline-block',
-          marginTop: '24px',
-          padding: '12px 24px',
-          fontSize: '15px',
-          fontWeight: 600,
-          color: '#fff',
-          background: '#111',
-          borderRadius: '8px',
-          textDecoration: 'none',
-        }}
-      >
-        Report a sighting
-      </Link>
-    </div>
+    </main>
   )
 }

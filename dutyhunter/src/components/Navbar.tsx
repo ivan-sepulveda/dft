@@ -8,7 +8,7 @@ import { createClient } from '@/lib/supabase/client'
 export default function Navbar() {
   const router = useRouter()
   const supabase = createClient()
-  const t = useTranslations('nav')
+  const tNav = useTranslations('nav')
   const tSightings = useTranslations('sightings')
 
   const [username, setUsername] = useState<string | null>(null)
@@ -145,7 +145,7 @@ export default function Navbar() {
                     color: '#b91c1c',
                 }}
                 >
-                {t('logout')}
+                {tNav('logout')}
                 </button>
             </div>
             )}
@@ -153,10 +153,10 @@ export default function Navbar() {
         ) : (
           <div style={{ display: 'flex', gap: '12px' }}>
             <Link href="/login" style={{ fontSize: '14px', color: '#fff' }}>
-              {t('login')}
+              {tNav('login')}
             </Link>
             <Link href="/signup" style={{ fontSize: '14px', color: '#fff' }}>
-              {t('signup')}
+              {tNav('signup')}
             </Link>
           </div>
         )}

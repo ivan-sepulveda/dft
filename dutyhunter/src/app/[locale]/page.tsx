@@ -1,13 +1,16 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link, useRouter } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
 
 export default function Home() {
   const router = useRouter()
   const supabase = createClient()
+  const tWelcome = useTranslations('welcome')
+  const tNav = useTranslations('nav')
+  const tAuth = useTranslations('auth')
 
   const [checkingAuth, setCheckingAuth] = useState(true)
 
@@ -40,11 +43,10 @@ export default function Home() {
     >
       <div style={{ maxWidth: '560px', textAlign: 'center' }}>
         <h1 style={{ fontSize: '32px', fontWeight: 700, marginBottom: '16px' }}>
-          Welcome to Duty Hunter
+          {tWelcome('title')}
         </h1>
         <p style={{ fontSize: '17px', color: '#888', lineHeight: 1.6, marginBottom: '32px' }}>
-          Fellow travelers helping each other find rare cigarettes, whiskeys,
-          and fragrances at duty-free stores around the world.
+          {tWelcome('subtitle')}
         </p>
 
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -60,7 +62,7 @@ export default function Home() {
               textDecoration: 'none',
             }}
           >
-            Log in
+            {tNav('login')}
           </Link>
           <Link
             href="/signup"
@@ -75,7 +77,7 @@ export default function Home() {
               textDecoration: 'none',
             }}
           >
-            Create an account
+            {tAuth('signupTitle')}
           </Link>
         </div>
       </div>

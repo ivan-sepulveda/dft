@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
+import { useRouter } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
 import Combobox from '@/components/Combobox'
 import imageCompression from 'browser-image-compression'
@@ -14,6 +15,8 @@ type Product = { id: string; product_line: string; brands: { name: string } | nu
 export default function NewSightingPage() {
   const router = useRouter()
   const supabase = createClient()
+  const tSightings = useTranslations('sightings')
+  const tAuth = useTranslations('auth')
 
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [airports, setAirports] = useState<Airport[]>([])
@@ -114,9 +117,7 @@ export default function NewSightingPage() {
       setPhotoPreview(URL.createObjectURL(compressed))
     } catch (err) {
       console.error('Photo compression failed:', err)
-      setPhotoError(
-        'Could not process that photo. Try a different one, or a standard JPEG/PNG.'
-      )
+      setPhotoError(tSightings('photoErrorMessage'))
       setPhotoFile(null)
       setPhotoPreview(null)
     } finally {
@@ -130,7 +131,7 @@ export default function NewSightingPage() {
     setSuccess(false)
 
     if (!airportId || !storeId || !productId) {
-      setError('Please select an airport, store, and product.')
+      setError(tSightings('selectAllFieldsError'))
       return
     }
 
@@ -138,7 +139,7 @@ export default function NewSightingPage() {
 
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) {
-      setError('You must be logged in.')
+      setError(tSightings('mustBeLoggedInError'))
       setLoading(false)
       return
     }
@@ -199,12 +200,12 @@ export default function NewSightingPage() {
   return (
     <div style={{ padding: '32px', maxWidth: '480px', margin: '0 auto' }}>
       <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '24px' }}>
-        Report a sighting
+        {tSightings('pageTitle')}
       </h1>
 
       <form onSubmit={handleSubmit}>
       <div style={{ marginBottom: '16px' }}>
-                <label style={labelStyle}>Airport</label>
+                <label style={labelStyle}>{tSightings('airportLabel')}</label>
                 <Combobox
                   options={airports.map((a) => ({
                     id: a.id,
@@ -212,12 +213,13 @@ export default function NewSightingPage() {
                   }))}
                   value={airportId}
                   onChange={setAirportId}
-                  placeholder="Search airports…"
+                  placeholder={tSightings('searchAirports')}
+                  noMatchesLabel={tSightings('noMatches')}
                 />
       </div>
 
       <div style={{ marginBottom: '16px' }}>
-          <label style={labelStyle}>Store</label>
+          <label style={labelStyle}>{tSightings('storeLabel')}</label>
           <select
             value={storeId}
             onChange={(e) => setStoreId(e.target.value)}
@@ -226,19 +228,19 @@ export default function NewSightingPage() {
             disabled={!airportId}
           >
             <option value="">
-              {airportId ? 'Select a store' : 'Select an airport first'}
+              {airportId ? tSightings('selectStore') : tSightings('selectAirportFirst')}
             </option>
             {stores.map((s) => (
               <option key={s.id} value={s.id}>
-                {s.store_name ?? 'Duty free'} — Terminal {s.terminal}
-                {s.nearest_gate ? ` (Near ${s.nearest_gate})` : ''}
+                {s.store_name ?? tSightings('dutyFreeFallback')} — {tSightings('terminal')} {s.terminal}
+                {s.nearest_gate ? ` (${tSightings('nearGate')} ${s.nearest_gate})` : ''}
               </option>
             ))}
           </select>
       </div>
 
       <div style={{ marginBottom: '16px' }}>
-          <label style={labelStyle}>Product</label>
+          <label style={labelStyle}>{tSightings('productLabel')}</label>
           <Combobox
             options={products.map((p) => ({
               id: p.id,
@@ -246,12 +248,13 @@ export default function NewSightingPage() {
             }))}
             value={productId}
             onChange={setProductId}
-            placeholder="Search products…"
+            placeholder={tSightings('searchProducts')}
+            noMatchesLabel={tSightings('noMatches')}
           />
       </div>
 
         <div style={{ marginBottom: '16px' }}>
-          <label style={labelStyle}>Date seen</label>
+          <label style={labelStyle}>{tSightings('dateLabel')}</label>
           <input
             type="date"
             value={seenAt}
@@ -262,7 +265,7 @@ export default function NewSightingPage() {
         </div>
 
         <div style={{ marginBottom: '8px' }}>
-          <label style={labelStyle}>Notes (optional)</label>
+          <label style={labelStyle}>{tSightings('notesLabel')}</label>
           <textarea
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
@@ -271,7 +274,7 @@ export default function NewSightingPage() {
           />
         </div>
 <div style={{ marginBottom: '16px' }}>
-          <label style={labelStyle}>Photo (optional)</label>
+          <label style={labelStyle}>{tSightings('photoLabel')}</label>
 
           <input
             ref={fileInputRef}
@@ -303,12 +306,12 @@ export default function NewSightingPage() {
               cursor: compressing ? 'not-allowed' : 'pointer',
             }}
           >
-            📷 {photoFile ? 'Change photo' : 'Add a photo'}
+            📷 {photoFile ? tSightings('changePhoto') : tSightings('addPhoto')}
           </button>
 
           {compressing && (
             <p style={{ fontSize: '13px', color: '#888', marginTop: '6px' }}>
-              Processing photo…
+              {tSightings('processingPhoto')}
             </p>
           )}
           {photoError && (
@@ -335,7 +338,7 @@ export default function NewSightingPage() {
           <p role="alert" style={errorStyle}>{error}</p>
         )}
         {success && (
-          <p style={successStyle}>Sighting added! 🎉</p>
+          <p style={successStyle}>{tSightings('sightingAdded')}</p>
         )}
 
 <button
@@ -354,7 +357,7 @@ export default function NewSightingPage() {
             cursor: loading ? 'not-allowed' : 'pointer',
           }}
         >
-          {loading ? 'Submitting…' : 'Submit sighting'}
+          {loading ? tSightings('submitting') : tSightings('submitButton')}
         </button>
       </form>
     </div>

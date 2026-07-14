@@ -13,7 +13,14 @@
     "subtitle": "Traccia gli avvistamenti di prodotti duty-free negli aeroporti di tutto il mondo.",
     "usernameLabel": "Nome utente",
     "passwordHint": "Almeno 6 caratteri",
-    "creatingAccount": "Creazione account…"
+    "creatingAccount": "Creazione account…",
+    "loggedInTitle": "Hai effettuato l'accesso",
+    "signedInAs": "Accesso effettuato come",
+    "goHome": "Vai alla home",
+    "loginSubtitle": "Bentornato su Duty Hunter.",
+    "loggingIn": "Accesso in corso…",
+    "checkEmailTitle": "Controlla la tua e-mail",
+    "checkEmailBody": "Ti abbiamo inviato un link di conferma. Fai clic per attivare il tuo account, poi torna e accedi."
   },
   "sightings": {
     "newSighting": "Nuovo avvistamento",
@@ -21,6 +28,33 @@
     "storeLabel": "Negozio",
     "productLabel": "Prodotto",
     "notesLabel": "Note (facoltativo)",
-    "submitButton": "Invia avvistamento"
+    "submitButton": "Invia avvistamento",
+    "pageTitle": "Segnala un avvistamento",
+    "dateLabel": "Data avvistamento",
+    "photoLabel": "Foto (facoltativo)",
+    "searchAirports": "Cerca aeroporti…",
+    "searchProducts": "Cerca prodotti…",
+    "selectStore": "Seleziona un negozio",
+    "selectAirportFirst": "Seleziona prima un aeroporto",
+    "dutyFreeFallback": "Duty free",
+    "terminal": "Terminal",
+    "nearGate": "Vicino a",
+    "changePhoto": "Cambia foto",
+    "addPhoto": "Aggiungi una foto",
+    "processingPhoto": "Elaborazione foto…",
+    "photoErrorMessage": "Impossibile elaborare quella foto. Prova con un'altra, o con un JPEG/PNG standard.",
+    "selectAllFieldsError": "Seleziona un aeroporto, un negozio e un prodotto.",
+    "mustBeLoggedInError": "Devi effettuare l'accesso.",
+    "sightingAdded": "Avvistamento aggiunto! 🎉",
+    "submitting": "Invio in corso…",
+    "noMatches": "Nessun risultato"
+  },
+  "home": {
+    "title": "Home",
+    "placeholder": "Provvisorio — i primi 5 aeroporti per ora."
+  },
+  "welcome": {
+    "title": "Benvenuto su Duty Hunter",
+    "subtitle": "Viaggiatori che si aiutano a vicenda a trovare sigarette, whisky e profumi rari nei negozi duty-free di tutto il mondo."
   }
 }

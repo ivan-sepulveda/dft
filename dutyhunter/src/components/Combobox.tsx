@@ -12,6 +12,7 @@ type ComboboxProps = {
   value: string
   onChange: (id: string) => void
   placeholder?: string
+  noMatchesLabel?: string
   disabled?: boolean
 }
 
@@ -20,20 +21,18 @@ export default function Combobox({
   value,
   onChange,
   placeholder = 'Search…',
+  noMatchesLabel = 'No matches',
   disabled = false,
 }: ComboboxProps) {
   const [query, setQuery] = useState('')
   const [open, setOpen] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
 
-  // Keep the displayed text in sync if `value` changes from outside
-  // (e.g. parent resets the form, or airport changes and clears store)
   useEffect(() => {
     const selected = options.find((o) => o.id === value)
     setQuery(selected ? selected.label : '')
   }, [value, options])
 
-  // Close the dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
@@ -97,7 +96,7 @@ export default function Combobox({
         >
           {filtered.length === 0 ? (
             <div style={{ padding: '10px 12px', fontSize: '14px', color: '#888' }}>
-              No matches
+              {noMatchesLabel}
             </div>
           ) : (
             filtered.map((option) => (
