@@ -1,13 +1,15 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link, useRouter } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
 
 export default function Navbar() {
   const router = useRouter()
   const supabase = createClient()
+  const t = useTranslations('nav')
+  const tSightings = useTranslations('sightings')
 
   const [username, setUsername] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
@@ -127,7 +129,7 @@ export default function Navbar() {
                     textDecoration: 'none',
                 }}
                 >
-                New sighting
+                {tSightings('newSighting')}
                 </Link>
                 <button
                 onClick={handleSignOut}
@@ -143,7 +145,7 @@ export default function Navbar() {
                     color: '#b91c1c',
                 }}
                 >
-                Sign out
+                {t('logout')}
                 </button>
             </div>
             )}
@@ -151,10 +153,10 @@ export default function Navbar() {
         ) : (
           <div style={{ display: 'flex', gap: '12px' }}>
             <Link href="/login" style={{ fontSize: '14px', color: '#fff' }}>
-              Log in
+              {t('login')}
             </Link>
             <Link href="/signup" style={{ fontSize: '14px', color: '#fff' }}>
-              Sign up
+              {t('signup')}
             </Link>
           </div>
         )}
