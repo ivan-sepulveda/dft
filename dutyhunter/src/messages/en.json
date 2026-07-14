@@ -9,7 +9,11 @@
     "signupTitle": "Create an account",
     "emailLabel": "Email",
     "passwordLabel": "Password",
-    "checkEmailMessage": "Check your email to confirm your account"
+    "checkEmailMessage": "Check your email to confirm your account",
+    "subtitle": "Track duty-free sightings at airports around the world.",
+    "usernameLabel": "Username",
+    "passwordHint": "At least 6 characters",
+    "creatingAccount": "Creating account…"
   },
   "sightings": {
     "newSighting": "New sighting",

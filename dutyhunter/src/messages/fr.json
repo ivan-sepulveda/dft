@@ -9,7 +9,11 @@
     "signupTitle": "Créer un compte",
     "emailLabel": "E-mail",
     "passwordLabel": "Mot de passe",
-    "checkEmailMessage": "Vérifiez votre e-mail pour confirmer votre compte"
+    "checkEmailMessage": "Vérifiez votre e-mail pour confirmer votre compte",
+    "subtitle": "Suivez les observations de produits hors taxes dans les aéroports du monde entier.",
+    "usernameLabel": "Nom d'utilisateur",
+    "passwordHint": "Au moins 6 caractères",
+    "creatingAccount": "Création du compte…"
   },
   "sightings": {
     "newSighting": "Nouvelle observation",

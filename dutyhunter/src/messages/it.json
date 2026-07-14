@@ -9,7 +9,11 @@
     "signupTitle": "Crea un account",
     "emailLabel": "E-mail",
     "passwordLabel": "Password",
-    "checkEmailMessage": "Controlla la tua e-mail per confermare l'account"
+    "checkEmailMessage": "Controlla la tua e-mail per confermare l'account",
+    "subtitle": "Traccia gli avvistamenti di prodotti duty-free negli aeroporti di tutto il mondo.",
+    "usernameLabel": "Nome utente",
+    "passwordHint": "Almeno 6 caratteri",
+    "creatingAccount": "Creazione account…"
   },
   "sightings": {
     "newSighting": "Nuovo avvistamento",
