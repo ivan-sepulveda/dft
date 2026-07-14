@@ -86,6 +86,18 @@ TRANSLATIONS = {
             "fr": "Connectez-vous à Duty Hunter",
             "it": "Accedi a Duty Hunter",
         },
+        "showPassword": {
+            "en": "Show password",
+            "es": "Mostrar contraseña",
+            "fr": "Afficher le mot de passe",
+            "it": "Mostra password",
+        },
+        "hidePassword": {
+            "en": "Hide password",
+            "es": "Ocultar contraseña",
+            "fr": "Masquer le mot de passe",
+            "it": "Nascondi password",
+        },
         "signupTitle": {
             "en": "Create an account",
             "es": "Crea una cuenta",

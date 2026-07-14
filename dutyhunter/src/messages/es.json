@@ -9,6 +9,8 @@
   },
   "auth": {
     "loginTitle": "Inicia sesión en Duty Hunter",
+    "showPassword": "Mostrar contraseña",
+    "hidePassword": "Ocultar contraseña",
     "signupTitle": "Crea una cuenta",
     "emailLabel": "Correo electrónico",
     "passwordLabel": "Contraseña",

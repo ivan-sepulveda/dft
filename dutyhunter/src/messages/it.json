@@ -9,6 +9,8 @@
   },
   "auth": {
     "loginTitle": "Accedi a Duty Hunter",
+    "showPassword": "Mostra password",
+    "hidePassword": "Nascondi password",
     "signupTitle": "Crea un account",
     "emailLabel": "E-mail",
     "passwordLabel": "Password",

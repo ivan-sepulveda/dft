@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { Link } from '@/i18n/navigation'
+import { Link, usePathname } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
 import Combobox from '@/components/Combobox'
 
@@ -16,6 +16,9 @@ type Airport = {
 export default function AirportsPage() {
   const supabase = createClient()
   const t = useTranslations('airportsPage')
+  const pathname = usePathname()
+  
+
 
   const [airports, setAirports] = useState<Airport[]>([])
   const [searchId, setSearchId] = useState('')
@@ -110,6 +113,11 @@ export default function AirportsPage() {
     ? airports.filter((a) => a.id === searchId)
     : airports
 
+  const isListView = pathname === '/airports'
+  const isMapView = pathname === '/airports/map'
+
+
+
   return (
     <div style={{ padding: '32px', maxWidth: '600px', margin: '0 auto' }}>
       <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '24px' }}>
@@ -117,37 +125,38 @@ export default function AirportsPage() {
       </h1>
 
       <div style={{ display: 'flex', gap: '8px', marginBottom: '24px' }}>
-        <button
-          disabled
-          style={{
-            padding: '8px 16px',
-            fontSize: '14px',
-            fontWeight: 600,
-            borderRadius: '8px',
-            border: '1px solid #333',
-            background: '#111',
-            color: '#fff',
-            cursor: 'default',
-          }}
-        >
-          {t('listView')}
-        </button>
         <Link
-          href="/airports/map"
-          style={{
-            padding: '8px 16px',
-            fontSize: '14px',
-            fontWeight: 600,
-            borderRadius: '8px',
-            border: '1px solid #333',
-            background: 'transparent',
-            color: '#111',
-            textDecoration: 'none',
-            display: 'inline-block',
-          }}
-        >
-          {t('mapView')}
-        </Link>
+    href="/airports"
+    style={{
+        padding: '8px 16px',
+        fontSize: '14px',
+        fontWeight: 600,
+        borderRadius: '8px',
+        border: '1px solid #333',
+        background: isListView ? '#111' : 'transparent',
+        color: isListView ? '#fff' : '#ccc',
+        textDecoration: 'none',
+        display: 'inline-block',
+    }}
+    >
+    {t('listView')}
+    </Link>
+    <Link
+    href="/airports/map"
+    style={{
+        padding: '8px 16px',
+        fontSize: '14px',
+        fontWeight: 600,
+        borderRadius: '8px',
+        border: '1px solid #333',
+        background: isMapView ? '#111' : 'transparent',
+        color: isMapView ? '#fff' : '#ccc',
+        textDecoration: 'none',
+        display: 'inline-block',
+    }}
+    >
+    {t('mapView')}
+    </Link>
       </div>
 
       <div style={{ marginBottom: '16px' }}>

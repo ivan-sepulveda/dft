@@ -11,6 +11,7 @@ export default function SignUpPage() {
   const tAuth = useTranslations('auth')
   const tNav = useTranslations('nav')
 
+  const [showPassword, setShowPassword] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [username, setUsername] = useState('')
@@ -116,31 +117,53 @@ export default function SignUpPage() {
             />
           </div>
 
-          <div style={{ marginBottom: '8px' }}>
-            <label
-              htmlFor="password"
-              style={{
-                display: 'block',
-                fontSize: '14px',
-                fontWeight: 500,
-                marginBottom: '6px',
-              }}
-            >
-              {tAuth('passwordLabel')}
-            </label>
-            <input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              minLength={6}
-              required
-              style={inputStyle}
-            />
-            <p style={{ fontSize: '12px', color: '#888', marginTop: '4px' }}>
-              {tAuth('passwordHint')}
-            </p>
-          </div>
+
+<div style={{ marginBottom: '8px' }}>
+  <label
+    htmlFor="password"
+    style={{
+      display: 'block',
+      fontSize: '14px',
+      fontWeight: 500,
+      marginBottom: '6px',
+    }}
+  >
+    {tAuth('passwordLabel')}
+  </label>
+  <div style={{ position: 'relative' }}>
+    <input
+      id="password"
+      type={showPassword ? 'text' : 'password'}
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      minLength={6}
+      required
+      style={{ ...inputStyle, paddingRight: '44px' }}
+    />
+    <button
+      type="button"
+      onClick={() => setShowPassword((prev) => !prev)}
+      aria-label={showPassword ? tAuth('hidePassword') : tAuth('showPassword')}
+      style={{
+        position: 'absolute',
+        right: '10px',
+        top: '50%',
+        transform: 'translateY(-50%)',
+        background: 'none',
+        border: 'none',
+        cursor: 'pointer',
+        fontSize: '13px',
+        color: '#888',
+        padding: '4px',
+      }}
+    >
+      {showPassword ? '🙈' : '👁️'}
+    </button>
+  </div>
+  <p style={{ fontSize: '12px', color: '#888', marginTop: '4px' }}>
+    {tAuth('passwordHint')}
+  </p>
+</div>
 
           {error && (
             <p
