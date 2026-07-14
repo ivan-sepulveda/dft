@@ -48,7 +48,8 @@ export default function AirportsPage() {
         .select('airport_id')
         .eq('user_id', user.id)
 
-      setFavoriteIds(new Set((data ?? []).map((row) => row.airport_id)))
+      const favoriteRows = (data ?? []) as { airport_id: string }[]
+      setFavoriteIds(new Set(favoriteRows.map((row) => row.airport_id)))
     }
 
     loadFavorites()
