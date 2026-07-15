@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { useRouter } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
+import { isDisposableEmail } from '@/lib/disposableEmailDomains'
 
 export default function SignUpPage() {
   const router = useRouter()
@@ -23,7 +24,14 @@ export default function SignUpPage() {
     setLoading(true)
     setError(null)
 
+    if (isDisposableEmail(email)) {
+      setError(tAuth('disposableEmailError'))
+      setLoading(false)
+      return
+    }
+
     const { data, error } = await supabase.auth.signUp({
+
       email,
       password,
       options: {

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { useRouter } from '@/i18n/navigation'
+import { Link, useRouter } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
 
 export default function LoginPage() {
@@ -228,6 +228,11 @@ export default function LoginPage() {
       {showPassword ? '🙈' : '👁️'}
     </button>
   </div>
+</div>
+<div style={{ textAlign: 'right', marginTop: '6px' }}>
+  <Link href="/forgot-password" style={{ fontSize: '13px', color: '#888' }}>
+    {tAuth('forgotPassword')}
+  </Link>
 </div>
 
           {error && (
