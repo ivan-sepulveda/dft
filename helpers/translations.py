@@ -527,6 +527,32 @@ TRANSLATIONS = {
             "it": "Nessun aeroporto trovato.",
         },
     },
+    "productsPage": {
+        "title": {
+            "en": "Products",
+            "es": "Productos",
+            "fr": "Produits",
+            "it": "Prodotti",
+        },
+        "searchPlaceholder": {
+            "en": "Search products…",
+            "es": "Buscar productos…",
+            "fr": "Rechercher des produits…",
+            "it": "Cerca prodotti…",
+        },
+        "noResults": {
+            "en": "No products found.",
+            "es": "No se encontraron productos.",
+            "fr": "Aucun produit trouvé.",
+            "it": "Nessun prodotto trovato.",
+        },
+        "noImage": {
+            "en": "No image",
+            "es": "Sin imagen",
+            "fr": "Aucune image",
+            "it": "Nessuna immagine",
+        },
+    },
 }
 
 

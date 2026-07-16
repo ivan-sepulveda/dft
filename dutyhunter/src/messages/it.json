@@ -89,5 +89,11 @@
     "mapView": "Vista mappa",
     "searchPlaceholder": "Cerca aeroporti…",
     "noResults": "Nessun aeroporto trovato."
+  },
+  "productsPage": {
+    "title": "Prodotti",
+    "searchPlaceholder": "Cerca prodotti…",
+    "noResults": "Nessun prodotto trovato.",
+    "noImage": "Nessuna immagine"
   }
 }

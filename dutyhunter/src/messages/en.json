@@ -89,5 +89,11 @@
     "mapView": "Map view",
     "searchPlaceholder": "Search airports…",
     "noResults": "No airports found."
+  },
+  "productsPage": {
+    "title": "Products",
+    "searchPlaceholder": "Search products…",
+    "noResults": "No products found.",
+    "noImage": "No image"
   }
 }
