@@ -95,5 +95,12 @@
     "searchPlaceholder": "Search products…",
     "noResults": "No products found.",
     "noImage": "No image"
+  },
+  "feed": {
+    "title": "Sightings Feed",
+    "empty": "No sightings yet. Be the first to report one!",
+    "reportedBy": "Reported by",
+    "seenOn": "Seen on",
+    "loadMore": "Load more"
   }
 }

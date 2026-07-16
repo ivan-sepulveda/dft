@@ -177,13 +177,17 @@ export default function NewSightingPage() {
           .upload(filePath, photoFile)
 
         if (uploadError) {
-          console.error('Photo upload failed:', uploadError)
+          console.error('Photo upload failed:', uploadError.message)
         } else {
-          await supabase.from('sighting_photos').insert({
+          const { error: photoInsertError } = await supabase.from('sighting_photos').insert({
             sighting_id: newSighting.id,
             storage_path: filePath,
             uploaded_by: user.id,
           })
+
+          if (photoInsertError) {
+            console.error('sighting_photos insert failed:', photoInsertError.message)
+          }
         }
       }
     }

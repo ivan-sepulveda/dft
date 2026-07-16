@@ -95,5 +95,12 @@
     "searchPlaceholder": "Cerca prodotti…",
     "noResults": "Nessun prodotto trovato.",
     "noImage": "Nessuna immagine"
+  },
+  "feed": {
+    "title": "Feed avvistamenti",
+    "empty": "Ancora nessun avvistamento. Sii il primo a segnalarne uno!",
+    "reportedBy": "Segnalato da",
+    "seenOn": "Visto il",
+    "loadMore": "Carica altro"
   }
 }

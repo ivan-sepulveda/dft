@@ -553,6 +553,38 @@ TRANSLATIONS = {
             "it": "Nessuna immagine",
         },
     },
+    "feed": {
+        "title": {
+            "en": "Sightings Feed",
+            "es": "Feed de avistamientos",
+            "fr": "Fil d'observations",
+            "it": "Feed avvistamenti",
+        },
+        "empty": {
+            "en": "No sightings yet. Be the first to report one!",
+            "es": "Aún no hay avistamientos. ¡Sé el primero en reportar uno!",
+            "fr": "Aucune observation pour l'instant. Soyez le premier à en signaler une !",
+            "it": "Ancora nessun avvistamento. Sii il primo a segnalarne uno!",
+        },
+        "reportedBy": {
+            "en": "Reported by",
+            "es": "Reportado por",
+            "fr": "Signalé par",
+            "it": "Segnalato da",
+        },
+        "seenOn": {
+            "en": "Seen on",
+            "es": "Visto el",
+            "fr": "Vu le",
+            "it": "Visto il",
+        },
+        "loadMore": {
+            "en": "Load more",
+            "es": "Cargar más",
+            "fr": "Charger plus",
+            "it": "Carica altro",
+        },
+    },
 }
 
 

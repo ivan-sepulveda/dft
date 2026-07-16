@@ -16,7 +16,6 @@ type Product = {
 export default function ProductsPage() {
   const supabase = createClient()
   const t = useTranslations('productsPage')
-  const tSightings = useTranslations('sightings')
   const tAirportsPage = useTranslations('airportsPage')
 
   const [products, setProducts] = useState<Product[]>([])
