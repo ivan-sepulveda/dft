@@ -26,6 +26,12 @@ type Sighting = {
   } | null
 }
 
+type SightingPhoto = {
+  id: string
+  sighting_id: string
+  storage_path: string
+}
+
 export default function HomePage() {
   const router = useRouter()
   const supabase = createClient()
@@ -34,6 +40,7 @@ export default function HomePage() {
   const [checkingAuth, setCheckingAuth] = useState(true)
   const [sightings, setSightings] = useState<Sighting[]>([])
   const [loading, setLoading] = useState(true)
+  const [photoUrls, setPhotoUrls] = useState<Record<string, string[]>>({})
 
   useEffect(() => {
     async function checkAuth() {
@@ -52,23 +59,23 @@ export default function HomePage() {
 
   useEffect(() => {
     async function loadFeed() {
-    const { data, error } = await supabase
-      .from('sightings')
-      .select(`
-        id,
-        seen_at,
-        notes,
-        created_at,
-        user_id,
-        products ( product_line, variant, brands ( name ) ),
-        stores ( store_name, terminal, airports ( iata_code, airport_name ) )
-      `)
-      .order('created_at', { ascending: false })
-      .limit(5)
+      const { data, error } = await supabase
+        .from('sightings')
+        .select(`
+          id,
+          seen_at,
+          notes,
+          created_at,
+          user_id,
+          products ( product_line, variant, brands ( name ) ),
+          stores ( store_name, terminal, airports ( iata_code, airport_name ) )
+        `)
+        .order('created_at', { ascending: false })
+        .limit(5)
 
-if (error) {
-  console.error('Failed to load feed:', error.message, error.details, error.hint, error.code)
-}
+      if (error) {
+        console.error('Failed to load feed:', error.message, error.details, error.hint, error.code)
+      }
 
       setSightings((data as unknown as Sighting[]) ?? [])
       setLoading(false)
@@ -97,6 +104,43 @@ if (error) {
     }
 
     loadUsernames()
+  }, [sightings])
+
+  useEffect(() => {
+    async function loadPhotos() {
+      if (sightings.length === 0) return
+
+      const sightingIds = sightings.map((s) => s.id)
+
+      const { data: photos, error } = await supabase
+        .from('sighting_photos')
+        .select('id, sighting_id, storage_path')
+        .in('sighting_id', sightingIds)
+
+      if (error) {
+        console.error('Failed to load sighting photos:', error.message)
+        return
+      }
+
+      const photoRows = (photos ?? []) as SightingPhoto[]
+
+      const urlsBySighting: Record<string, string[]> = {}
+
+      photoRows.forEach((photo) => {
+        const { data: urlData } = supabase.storage
+          .from('sighting-photos')
+          .getPublicUrl(photo.storage_path)
+
+        if (!urlsBySighting[photo.sighting_id]) {
+          urlsBySighting[photo.sighting_id] = []
+        }
+        urlsBySighting[photo.sighting_id].push(urlData.publicUrl)
+      })
+
+      setPhotoUrls(urlsBySighting)
+    }
+
+    loadPhotos()
   }, [sightings])
 
   if (checkingAuth) return null
@@ -132,6 +176,32 @@ if (error) {
                 {sighting.stores?.store_name ?? 'Duty free'} (Terminal {sighting.stores?.terminal})
               </div>
 
+              {photoUrls[sighting.id] && photoUrls[sighting.id].length > 0 && (
+                <div
+                  style={{
+                    display: 'flex',
+                    gap: '8px',
+                    overflowX: 'auto',
+                    marginBottom: '8px',
+                  }}
+                >
+                  {photoUrls[sighting.id].map((url, i) => (
+                    <img
+                      key={i}
+                      src={url}
+                      alt=""
+                      style={{
+                        width: '100px',
+                        height: '100px',
+                        objectFit: 'cover',
+                        borderRadius: '8px',
+                        flexShrink: 0,
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
+
               {sighting.notes && (
                 <p style={{ fontSize: '14px', color: '#ccc', marginBottom: '8px' }}>
                   {sighting.notes}
@@ -139,7 +209,8 @@ if (error) {
               )}
 
               <div style={{ fontSize: '12px', color: '#888' }}>
-              {t('reportedBy')} {usernames[sighting.user_id] ?? 'someone'} · {t('seenOn')}{' '}                {new Date(sighting.seen_at).toLocaleDateString()}
+                {t('reportedBy')} {usernames[sighting.user_id] ?? 'someone'} · {t('seenOn')}{' '}
+                {new Date(sighting.seen_at).toLocaleDateString()}
               </div>
             </div>
           ))}
