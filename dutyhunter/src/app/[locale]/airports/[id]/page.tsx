@@ -71,8 +71,7 @@ export default function AirportSightingsPage() {
         .select('id')
         .eq('airport_id', airportId)
 
-      const storeIds = (storeRows ?? []).map((s) => s.id)
-
+      const storeIds = (storeRows ?? []).map((s: { id: string }) => s.id)
       if (storeIds.length === 0) {
         setSightings([])
         setLoading(false)
