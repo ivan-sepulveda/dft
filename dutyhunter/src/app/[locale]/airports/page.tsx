@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { Link, usePathname } from '@/i18n/navigation'
+import { Link, usePathname, useRouter } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
 import Combobox from '@/components/Combobox'
 
@@ -18,7 +18,7 @@ export default function AirportsPage() {
   const t = useTranslations('airportsPage')
   const pathname = usePathname()
   
-
+  const router = useRouter()
 
   const [airports, setAirports] = useState<Airport[]>([])
   const [searchId, setSearchId] = useState('')
@@ -179,42 +179,47 @@ export default function AirportsPage() {
           displayedAirports.map((airport) => {
             const isFavorite = favoriteIds.has(airport.id)
             return (
-              <div
-                key={airport.id}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  gap: '10px',
-                  padding: '14px 16px',
-                  border: '1px solid #333',
-                  borderRadius: '8px',
-                }}
-              >
-                <div>
-                  <strong>{airport.iata_code}</strong> — {airport.airport_name}
-                  {airport.city ? ` — ${airport.city}` : ''}
-                </div>
+            <div
+            key={airport.id}
+            style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '10px',
+                padding: '14px 16px',
+                border: '1px solid #333',
+                borderRadius: '8px',
+                cursor: 'pointer',
+            }}
+            onClick={() => router.push(`/airports/${airport.id}`)}
+            >
+            <div>
+                <strong>{airport.iata_code}</strong> — {airport.airport_name}
+                {airport.city ? ` — ${airport.city}` : ''}
+            </div>
 
-                <button
-                  type="button"
-                  onClick={() => toggleFavorite(airport.id)}
-                  disabled={!userId}
-                  aria-label={isFavorite ? t('removeFromFavorites') : t('addToFavorites')}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    padding: '4px',
-                    cursor: userId ? 'pointer' : 'default',
-                    fontSize: '20px',
-                    color: isFavorite ? '#facc15' : '#666',
-                    lineHeight: 1,
-                    flexShrink: 0,
-                  }}
-                >
-                  {isFavorite ? '★' : '☆'}
-                </button>
-              </div>
+            <button
+                type="button"
+                onClick={(e) => {
+                e.stopPropagation()
+                toggleFavorite(airport.id)
+                }}
+                disabled={!userId}
+                aria-label={isFavorite ? t('removeFromFavorites') : t('addToFavorites')}
+                style={{
+                background: 'none',
+                border: 'none',
+                padding: '4px',
+                cursor: userId ? 'pointer' : 'default',
+                fontSize: '20px',
+                color: isFavorite ? '#facc15' : '#666',
+                lineHeight: 1,
+                flexShrink: 0,
+                }}
+            >
+                {isFavorite ? '★' : '☆'}
+            </button>
+            </div>
             )
           })
         )}

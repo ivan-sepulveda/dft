@@ -585,6 +585,64 @@ TRANSLATIONS = {
             "it": "Carica altro",
         },
     },
+    "airportSightings": {
+        "backToAirports": {
+            "en": "Back to airports",
+            "es": "Volver a aeropuertos",
+            "fr": "Retour aux aéroports",
+            "it": "Torna agli aeroporti",
+        },
+        "empty": {
+            "en": "No sightings reported at this airport yet.",
+            "es": "Aún no hay avistamientos reportados en este aeropuerto.",
+            "fr": "Aucune observation signalée dans cet aéroport pour l'instant.",
+            "it": "Ancora nessun avvistamento segnalato in questo aeroporto.",
+        },
+    },
+    "profile": {
+        "editTitle": {
+            "en": "Edit profile",
+            "es": "Editar perfil",
+            "fr": "Modifier le profil",
+            "it": "Modifica profilo",
+        },
+        "displayNameLabel": {
+            "en": "Display name",
+            "es": "Nombre para mostrar",
+            "fr": "Nom affiché",
+            "it": "Nome visualizzato",
+        },
+        "displayNameHint": {
+            "en": "This is shown on your sightings instead of your username.",
+            "es": "Esto se muestra en tus avistamientos en lugar de tu nombre de usuario.",
+            "fr": "Ceci est affiché sur vos observations à la place de votre nom d'utilisateur.",
+            "it": "Questo viene mostrato nei tuoi avvistamenti al posto del tuo nome utente.",
+        },
+        "saveButton": {
+            "en": "Save changes",
+            "es": "Guardar cambios",
+            "fr": "Enregistrer les modifications",
+            "it": "Salva modifiche",
+        },
+        "saving": {
+            "en": "Saving…",
+            "es": "Guardando…",
+            "fr": "Enregistrement…",
+            "it": "Salvataggio…",
+        },
+        "saveSuccess": {
+            "en": "Profile updated!",
+            "es": "¡Perfil actualizado!",
+            "fr": "Profil mis à jour !",
+            "it": "Profilo aggiornato!",
+        },
+        "editProfileLink": {
+            "en": "Edit profile",
+            "es": "Editar perfil",
+            "fr": "Modifier le profil",
+            "it": "Modifica profilo",
+        },
+    },
 }
 
 

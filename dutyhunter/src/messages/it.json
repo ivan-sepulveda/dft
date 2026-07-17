@@ -102,5 +102,18 @@
     "reportedBy": "Segnalato da",
     "seenOn": "Visto il",
     "loadMore": "Carica altro"
+  },
+  "airportSightings": {
+    "backToAirports": "Torna agli aeroporti",
+    "empty": "Ancora nessun avvistamento segnalato in questo aeroporto."
+  },
+  "profile": {
+    "editTitle": "Modifica profilo",
+    "displayNameLabel": "Nome visualizzato",
+    "displayNameHint": "Questo viene mostrato nei tuoi avvistamenti al posto del tuo nome utente.",
+    "saveButton": "Salva modifiche",
+    "saving": "Salvataggio…",
+    "saveSuccess": "Profilo aggiornato!",
+    "editProfileLink": "Modifica profilo"
   }
 }

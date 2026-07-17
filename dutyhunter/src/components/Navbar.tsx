@@ -10,7 +10,7 @@ export default function Navbar() {
   const supabase = createClient()
   const tNav = useTranslations('nav')
   const tSightings = useTranslations('sightings')
-
+  const tProfile = useTranslations('profile')
   const [username, setUsername] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -202,6 +202,21 @@ export default function Navbar() {
                 >
                 {tSightings('newSighting')}
                 </Link>
+
+              <Link
+              href="/profile/edit"
+              onClick={() => setMenuOpen(false)}
+              style={{
+                display: 'block',
+                padding: '10px 14px',
+                fontSize: '14px',
+                color: '#111',
+                textDecoration: 'none',
+                borderTop: '1px solid #f0f0f0',
+              }}
+            >
+              {tProfile('editProfileLink')}
+            </Link>
                 <button
                 onClick={handleSignOut}
                 style={{

@@ -102,5 +102,18 @@
     "reportedBy": "Reported by",
     "seenOn": "Seen on",
     "loadMore": "Load more"
+  },
+  "airportSightings": {
+    "backToAirports": "Back to airports",
+    "empty": "No sightings reported at this airport yet."
+  },
+  "profile": {
+    "editTitle": "Edit profile",
+    "displayNameLabel": "Display name",
+    "displayNameHint": "This is shown on your sightings instead of your username.",
+    "saveButton": "Save changes",
+    "saving": "Saving…",
+    "saveSuccess": "Profile updated!",
+    "editProfileLink": "Edit profile"
   }
 }
