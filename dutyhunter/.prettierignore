@@ -1,0 +1,4 @@
+node_modules
+.next
+dft/helpers/data
+src/messages
