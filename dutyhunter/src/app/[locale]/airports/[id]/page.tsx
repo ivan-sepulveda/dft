@@ -80,7 +80,8 @@ export default function AirportSightingsPage() {
 
       const { data, error } = await supabase
         .from('sightings')
-        .select(`
+        .select(
+          `
           id,
           seen_at,
           notes,
@@ -88,7 +89,8 @@ export default function AirportSightingsPage() {
           user_id,
           products ( product_line, variant, brands ( name ) ),
           stores ( store_name, terminal )
-        `)
+        `
+        )
         .in('store_id', storeIds)
         .order('created_at', { ascending: false })
 
@@ -109,10 +111,7 @@ export default function AirportSightingsPage() {
 
       const userIds = [...new Set(sightings.map((s) => s.user_id))]
 
-      const { data } = await supabase
-        .from('profiles')
-        .select('id, username')
-        .in('id', userIds)
+      const { data } = await supabase.from('profiles').select('id, username').in('id', userIds)
 
       const map: Record<string, string> = {}
       ;(data ?? []).forEach((row: { id: string; username: string | null }) => {
@@ -125,42 +124,42 @@ export default function AirportSightingsPage() {
     loadUsernames()
   }, [sightings])
 
-    useEffect(() => {
+  useEffect(() => {
     async function loadPhotos() {
-        if (sightings.length === 0) return
+      if (sightings.length === 0) return
 
-        const sightingIds = sightings.map((s) => s.id)
+      const sightingIds = sightings.map((s) => s.id)
 
-        const { data: photos, error } = await supabase
+      const { data: photos, error } = await supabase
         .from('sighting_photos')
         .select('id, sighting_id, storage_path')
         .in('sighting_id', sightingIds)
 
-        if (error) {
+      if (error) {
         console.error('Failed to load sighting photos:', error.message)
         return
-        }
+      }
 
-        const photoRows = (photos ?? []) as SightingPhoto[]
+      const photoRows = (photos ?? []) as SightingPhoto[]
 
-        const urlsBySighting: Record<string, string[]> = {}
+      const urlsBySighting: Record<string, string[]> = {}
 
-        photoRows.forEach((photo) => {
+      photoRows.forEach((photo) => {
         const { data: urlData } = supabase.storage
-            .from('sighting-photos')
-            .getPublicUrl(photo.storage_path)
+          .from('sighting-photos')
+          .getPublicUrl(photo.storage_path)
 
         if (!urlsBySighting[photo.sighting_id]) {
-            urlsBySighting[photo.sighting_id] = []
+          urlsBySighting[photo.sighting_id] = []
         }
         urlsBySighting[photo.sighting_id].push(urlData.publicUrl)
-        })
+      })
 
-        setPhotoUrls(urlsBySighting)
+      setPhotoUrls(urlsBySighting)
     }
 
     loadPhotos()
-    }, [sightings])
+  }, [sightings])
 
   return (
     <div style={{ padding: '32px', maxWidth: '640px', margin: '0 auto' }}>
@@ -194,32 +193,32 @@ export default function AirportSightingsPage() {
               <div style={{ fontSize: '13px', color: '#aaa', marginBottom: '8px' }}>
                 {sighting.stores?.store_name ?? 'Duty free'} (Terminal {sighting.stores?.terminal})
               </div>
-              
-            {photoUrls[sighting.id] && photoUrls[sighting.id].length > 0 && (
-            <div
-                style={{
-                display: 'flex',
-                gap: '8px',
-                overflowX: 'auto',
-                marginBottom: '8px',
-                }}
-            >
-                {photoUrls[sighting.id].map((url, i) => (
-                <img
-                    key={i}
-                    src={url}
-                    alt=""
-                    style={{
-                    width: '100px',
-                    height: '100px',
-                    objectFit: 'cover',
-                    borderRadius: '8px',
-                    flexShrink: 0,
-                    }}
-                />
-                ))}
-            </div>
-            )}
+
+              {photoUrls[sighting.id] && photoUrls[sighting.id].length > 0 && (
+                <div
+                  style={{
+                    display: 'flex',
+                    gap: '8px',
+                    overflowX: 'auto',
+                    marginBottom: '8px',
+                  }}
+                >
+                  {photoUrls[sighting.id].map((url, i) => (
+                    <img
+                      key={i}
+                      src={url}
+                      alt=""
+                      style={{
+                        width: '100px',
+                        height: '100px',
+                        objectFit: 'cover',
+                        borderRadius: '8px',
+                        flexShrink: 0,
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
 
               {sighting.notes && (
                 <p style={{ fontSize: '14px', color: '#ccc', marginBottom: '8px' }}>

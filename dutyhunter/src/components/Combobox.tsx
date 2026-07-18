@@ -112,7 +112,8 @@ export default function Combobox({
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.background = '#292929')}
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.background = option.id === value ? '#292929' : 'transparent')
+                  (e.currentTarget.style.background =
+                    option.id === value ? '#292929' : 'transparent')
                 }
               >
                 {option.label}

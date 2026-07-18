@@ -19,7 +19,9 @@ export default function Navbar() {
   useEffect(() => {
     async function loadUser() {
       try {
-        const { data: { user } } = await supabase.auth.getUser()
+        const {
+          data: { user },
+        } = await supabase.auth.getUser()
 
         if (!user) {
           setUsername(null)
@@ -175,51 +177,51 @@ export default function Navbar() {
             </button>
 
             {menuOpen && (
-            <div
+              <div
                 style={{
-                position: 'absolute',
-                right: 0,
-                top: '36px',
-                background: '#fff',
-                border: '1px solid #e5e5e5',
-                borderRadius: '8px',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
-                minWidth: '160px',
-                overflow: 'hidden',
-                zIndex: 10,
+                  position: 'absolute',
+                  right: 0,
+                  top: '36px',
+                  background: '#fff',
+                  border: '1px solid #e5e5e5',
+                  borderRadius: '8px',
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+                  minWidth: '160px',
+                  overflow: 'hidden',
+                  zIndex: 10,
                 }}
-            >
+              >
                 <Link
-                href="/sightings/new"
-                onClick={() => setMenuOpen(false)}
-                style={{
+                  href="/sightings/new"
+                  onClick={() => setMenuOpen(false)}
+                  style={{
                     display: 'block',
                     padding: '10px 14px',
                     fontSize: '14px',
                     color: '#111',
                     textDecoration: 'none',
-                }}
+                  }}
                 >
-                {tSightings('newSighting')}
+                  {tSightings('newSighting')}
                 </Link>
 
-              <Link
-              href="/profile/edit"
-              onClick={() => setMenuOpen(false)}
-              style={{
-                display: 'block',
-                padding: '10px 14px',
-                fontSize: '14px',
-                color: '#111',
-                textDecoration: 'none',
-                borderTop: '1px solid #f0f0f0',
-              }}
-            >
-              {tProfile('editProfileLink')}
-            </Link>
+                <Link
+                  href="/profile/edit"
+                  onClick={() => setMenuOpen(false)}
+                  style={{
+                    display: 'block',
+                    padding: '10px 14px',
+                    fontSize: '14px',
+                    color: '#111',
+                    textDecoration: 'none',
+                    borderTop: '1px solid #f0f0f0',
+                  }}
+                >
+                  {tProfile('editProfileLink')}
+                </Link>
                 <button
-                onClick={handleSignOut}
-                style={{
+                  onClick={handleSignOut}
+                  style={{
                     width: '100%',
                     textAlign: 'left',
                     padding: '10px 14px',
@@ -229,11 +231,11 @@ export default function Navbar() {
                     fontSize: '14px',
                     cursor: 'pointer',
                     color: '#b91c1c',
-                }}
+                  }}
                 >
-                {tNav('logout')}
+                  {tNav('logout')}
                 </button>
-            </div>
+              </div>
             )}
           </div>
         ) : (

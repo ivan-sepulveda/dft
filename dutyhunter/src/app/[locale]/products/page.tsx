@@ -40,7 +40,9 @@ export default function ProductsPage() {
 
   useEffect(() => {
     async function loadFavorites() {
-      const { data: { user } } = await supabase.auth.getUser()
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
       if (!user) return
 
       setUserId(user.id)
@@ -107,15 +109,11 @@ export default function ProductsPage() {
     })
   }
 
-  const displayedProducts = searchId
-    ? products.filter((p) => p.id === searchId)
-    : products
+  const displayedProducts = searchId ? products.filter((p) => p.id === searchId) : products
 
   return (
     <div style={{ padding: '32px', maxWidth: '700px', margin: '0 auto' }}>
-      <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '24px' }}>
-        {t('title')}
-      </h1>
+      <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '24px' }}>{t('title')}</h1>
 
       <div style={{ marginBottom: '16px' }}>
         <Combobox
@@ -138,24 +136,22 @@ export default function ProductsPage() {
         }}
       >
         {displayedProducts.length === 0 ? (
-          <p style={{ fontSize: '14px', color: '#888', gridColumn: '1 / -1' }}>
-            {t('noResults')}
-          </p>
+          <p style={{ fontSize: '14px', color: '#888', gridColumn: '1 / -1' }}>{t('noResults')}</p>
         ) : (
           displayedProducts.map((product) => {
             const isFavorite = favoriteIds.has(product.id)
             return (
-            <div
-              key={product.id}
-              style={{
-                border: '1px solid #333',
-                borderRadius: '10px',
-                overflow: 'hidden',
-                position: 'relative',
-                cursor: 'pointer',
-              }}
-              onClick={() => router.push(`/products/${product.id}`)}
-            >
+              <div
+                key={product.id}
+                style={{
+                  border: '1px solid #333',
+                  borderRadius: '10px',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  cursor: 'pointer',
+                }}
+                onClick={() => router.push(`/products/${product.id}`)}
+              >
                 <div
                   style={{
                     width: '100%',
@@ -181,9 +177,11 @@ export default function ProductsPage() {
                   type="button"
                   onClick={() => toggleFavorite(product.id)}
                   disabled={!userId}
-                    aria-label={
-                    isFavorite ? tAirportsPage('removeFromFavorites') : tAirportsPage('addToFavorites')
-                    }
+                  aria-label={
+                    isFavorite
+                      ? tAirportsPage('removeFromFavorites')
+                      : tAirportsPage('addToFavorites')
+                  }
                   style={{
                     position: 'absolute',
                     top: '8px',

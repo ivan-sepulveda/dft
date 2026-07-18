@@ -44,7 +44,9 @@ export default function HomePage() {
 
   useEffect(() => {
     async function checkAuth() {
-      const { data: { user } } = await supabase.auth.getUser()
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
 
       if (!user) {
         router.replace('/login')
@@ -61,7 +63,8 @@ export default function HomePage() {
     async function loadFeed() {
       const { data, error } = await supabase
         .from('sightings')
-        .select(`
+        .select(
+          `
           id,
           seen_at,
           notes,
@@ -69,7 +72,8 @@ export default function HomePage() {
           user_id,
           products ( product_line, variant, brands ( name ) ),
           stores ( store_name, terminal, airports ( iata_code, airport_name ) )
-        `)
+        `
+        )
         .order('created_at', { ascending: false })
         .limit(5)
 
@@ -90,10 +94,7 @@ export default function HomePage() {
 
       const userIds = [...new Set(sightings.map((s) => s.user_id))]
 
-      const { data } = await supabase
-        .from('profiles')
-        .select('id, username')
-        .in('id', userIds)
+      const { data } = await supabase.from('profiles').select('id, username').in('id', userIds)
 
       const map: Record<string, string> = {}
       ;(data ?? []).forEach((row: { id: string; username: string | null }) => {
@@ -147,9 +148,7 @@ export default function HomePage() {
 
   return (
     <div style={{ padding: '32px', maxWidth: '640px', margin: '0 auto' }}>
-      <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '24px' }}>
-        {t('title')}
-      </h1>
+      <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '24px' }}>{t('title')}</h1>
 
       {loading ? null : sightings.length === 0 ? (
         <p style={{ fontSize: '14px', color: '#888' }}>{t('empty')}</p>

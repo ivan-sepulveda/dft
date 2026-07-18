@@ -100,10 +100,23 @@ export default function AirportsMap({
               icon={isFavorite ? FAVORITE_ICON : DEFAULT_ICON}
             >
               <Popup>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', minWidth: '140px' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: '10px',
+                    minWidth: '140px',
+                  }}
+                >
                   <div>
                     <strong>{airport.iata_code}</strong> — {airport.airport_name}
-                    {airport.city ? <><br />{airport.city}</> : null}
+                    {airport.city ? (
+                      <>
+                        <br />
+                        {airport.city}
+                      </>
+                    ) : null}
                   </div>
                   <button
                     type="button"

@@ -48,6 +48,9 @@ export function isDisposableEmail(email: string): boolean {
   const atIndex = email.lastIndexOf('@')
   if (atIndex === -1) return false
 
-  const domain = email.slice(atIndex + 1).toLowerCase().trim()
+  const domain = email
+    .slice(atIndex + 1)
+    .toLowerCase()
+    .trim()
   return DISPOSABLE_EMAIL_DOMAINS.has(domain)
 }

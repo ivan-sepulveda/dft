@@ -17,7 +17,7 @@ export default function AirportsPage() {
   const supabase = createClient()
   const t = useTranslations('airportsPage')
   const pathname = usePathname()
-  
+
   const router = useRouter()
 
   const [airports, setAirports] = useState<Airport[]>([])
@@ -41,7 +41,9 @@ export default function AirportsPage() {
 
   useEffect(() => {
     async function loadFavorites() {
-      const { data: { user } } = await supabase.auth.getUser()
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
       if (!user) return
 
       setUserId(user.id)
@@ -109,54 +111,48 @@ export default function AirportsPage() {
     })
   }
 
-  const displayedAirports = searchId
-    ? airports.filter((a) => a.id === searchId)
-    : airports
+  const displayedAirports = searchId ? airports.filter((a) => a.id === searchId) : airports
 
   const isListView = pathname === '/airports'
   const isMapView = pathname === '/airports/map'
 
-
-
   return (
     <div style={{ padding: '32px', maxWidth: '600px', margin: '0 auto' }}>
-      <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '24px' }}>
-        {t('title')}
-      </h1>
+      <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '24px' }}>{t('title')}</h1>
 
       <div style={{ display: 'flex', gap: '8px', marginBottom: '24px' }}>
         <Link
-    href="/airports"
-    style={{
-        padding: '8px 16px',
-        fontSize: '14px',
-        fontWeight: 600,
-        borderRadius: '8px',
-        border: '1px solid #333',
-        background: isListView ? '#111' : 'transparent',
-        color: isListView ? '#fff' : '#ccc',
-        textDecoration: 'none',
-        display: 'inline-block',
-    }}
-    >
-    {t('listView')}
-    </Link>
-    <Link
-    href="/airports/map"
-    style={{
-        padding: '8px 16px',
-        fontSize: '14px',
-        fontWeight: 600,
-        borderRadius: '8px',
-        border: '1px solid #333',
-        background: isMapView ? '#111' : 'transparent',
-        color: isMapView ? '#fff' : '#ccc',
-        textDecoration: 'none',
-        display: 'inline-block',
-    }}
-    >
-    {t('mapView')}
-    </Link>
+          href="/airports"
+          style={{
+            padding: '8px 16px',
+            fontSize: '14px',
+            fontWeight: 600,
+            borderRadius: '8px',
+            border: '1px solid #333',
+            background: isListView ? '#111' : 'transparent',
+            color: isListView ? '#fff' : '#ccc',
+            textDecoration: 'none',
+            display: 'inline-block',
+          }}
+        >
+          {t('listView')}
+        </Link>
+        <Link
+          href="/airports/map"
+          style={{
+            padding: '8px 16px',
+            fontSize: '14px',
+            fontWeight: 600,
+            borderRadius: '8px',
+            border: '1px solid #333',
+            background: isMapView ? '#111' : 'transparent',
+            color: isMapView ? '#fff' : '#ccc',
+            textDecoration: 'none',
+            display: 'inline-block',
+          }}
+        >
+          {t('mapView')}
+        </Link>
       </div>
 
       <div style={{ marginBottom: '16px' }}>
@@ -179,47 +175,47 @@ export default function AirportsPage() {
           displayedAirports.map((airport) => {
             const isFavorite = favoriteIds.has(airport.id)
             return (
-            <div
-            key={airport.id}
-            style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                gap: '10px',
-                padding: '14px 16px',
-                border: '1px solid #333',
-                borderRadius: '8px',
-                cursor: 'pointer',
-            }}
-            onClick={() => router.push(`/airports/${airport.id}`)}
-            >
-            <div>
-                <strong>{airport.iata_code}</strong> — {airport.airport_name}
-                {airport.city ? ` — ${airport.city}` : ''}
-            </div>
-
-            <button
-                type="button"
-                onClick={(e) => {
-                e.stopPropagation()
-                toggleFavorite(airport.id)
-                }}
-                disabled={!userId}
-                aria-label={isFavorite ? t('removeFromFavorites') : t('addToFavorites')}
+              <div
+                key={airport.id}
                 style={{
-                background: 'none',
-                border: 'none',
-                padding: '4px',
-                cursor: userId ? 'pointer' : 'default',
-                fontSize: '20px',
-                color: isFavorite ? '#facc15' : '#666',
-                lineHeight: 1,
-                flexShrink: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  gap: '10px',
+                  padding: '14px 16px',
+                  border: '1px solid #333',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
                 }}
-            >
-                {isFavorite ? '★' : '☆'}
-            </button>
-            </div>
+                onClick={() => router.push(`/airports/${airport.id}`)}
+              >
+                <div>
+                  <strong>{airport.iata_code}</strong> — {airport.airport_name}
+                  {airport.city ? ` — ${airport.city}` : ''}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    toggleFavorite(airport.id)
+                  }}
+                  disabled={!userId}
+                  aria-label={isFavorite ? t('removeFromFavorites') : t('addToFavorites')}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    padding: '4px',
+                    cursor: userId ? 'pointer' : 'default',
+                    fontSize: '20px',
+                    color: isFavorite ? '#facc15' : '#666',
+                    lineHeight: 1,
+                    flexShrink: 0,
+                  }}
+                >
+                  {isFavorite ? '★' : '☆'}
+                </button>
+              </div>
             )
           })
         )}

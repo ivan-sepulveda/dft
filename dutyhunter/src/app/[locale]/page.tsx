@@ -16,7 +16,9 @@ export default function Home() {
 
   useEffect(() => {
     async function checkAuth() {
-      const { data: { user } } = await supabase.auth.getUser()
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
 
       if (user) {
         router.replace('/home')

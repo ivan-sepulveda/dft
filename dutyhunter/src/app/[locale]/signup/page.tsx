@@ -31,7 +31,6 @@ export default function SignUpPage() {
     }
 
     const { data, error } = await supabase.auth.signUp({
-
       email,
       password,
       options: {
@@ -76,9 +75,7 @@ export default function SignUpPage() {
         <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '4px' }}>
           {tAuth('signupTitle')}
         </h1>
-        <p style={{ fontSize: '14px', color: '#666', marginBottom: '24px' }}>
-          {tAuth('subtitle')}
-        </p>
+        <p style={{ fontSize: '14px', color: '#666', marginBottom: '24px' }}>{tAuth('subtitle')}</p>
 
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: '16px' }}>
@@ -125,53 +122,52 @@ export default function SignUpPage() {
             />
           </div>
 
-
-<div style={{ marginBottom: '8px' }}>
-  <label
-    htmlFor="password"
-    style={{
-      display: 'block',
-      fontSize: '14px',
-      fontWeight: 500,
-      marginBottom: '6px',
-    }}
-  >
-    {tAuth('passwordLabel')}
-  </label>
-  <div style={{ position: 'relative' }}>
-    <input
-      id="password"
-      type={showPassword ? 'text' : 'password'}
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-      minLength={6}
-      required
-      style={{ ...inputStyle, paddingRight: '44px' }}
-    />
-    <button
-      type="button"
-      onClick={() => setShowPassword((prev) => !prev)}
-      aria-label={showPassword ? tAuth('hidePassword') : tAuth('showPassword')}
-      style={{
-        position: 'absolute',
-        right: '10px',
-        top: '50%',
-        transform: 'translateY(-50%)',
-        background: 'none',
-        border: 'none',
-        cursor: 'pointer',
-        fontSize: '13px',
-        color: '#888',
-        padding: '4px',
-      }}
-    >
-      {showPassword ? '🙈' : '👁️'}
-    </button>
-  </div>
-  <p style={{ fontSize: '12px', color: '#888', marginTop: '4px' }}>
-    {tAuth('passwordHint')}
-  </p>
-</div>
+          <div style={{ marginBottom: '8px' }}>
+            <label
+              htmlFor="password"
+              style={{
+                display: 'block',
+                fontSize: '14px',
+                fontWeight: 500,
+                marginBottom: '6px',
+              }}
+            >
+              {tAuth('passwordLabel')}
+            </label>
+            <div style={{ position: 'relative' }}>
+              <input
+                id="password"
+                type={showPassword ? 'text' : 'password'}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                minLength={6}
+                required
+                style={{ ...inputStyle, paddingRight: '44px' }}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+                aria-label={showPassword ? tAuth('hidePassword') : tAuth('showPassword')}
+                style={{
+                  position: 'absolute',
+                  right: '10px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '13px',
+                  color: '#888',
+                  padding: '4px',
+                }}
+              >
+                {showPassword ? '🙈' : '👁️'}
+              </button>
+            </div>
+            <p style={{ fontSize: '12px', color: '#888', marginTop: '4px' }}>
+              {tAuth('passwordHint')}
+            </p>
+          </div>
 
           {error && (
             <p

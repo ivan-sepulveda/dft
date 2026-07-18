@@ -7,9 +7,13 @@ import { createClient } from '@/lib/supabase/client'
 import Combobox from '@/components/Combobox'
 import imageCompression from 'browser-image-compression'
 
-
 type Airport = { id: string; iata_code: string; airport_name: string }
-type Store = { id: string; store_name: string | null; terminal: string; nearest_gate: string | null }
+type Store = {
+  id: string
+  store_name: string | null
+  terminal: string
+  nearest_gate: string | null
+}
 type Product = { id: string; product_line: string; brands: { name: string } | null }
 
 export default function NewSightingPage() {
@@ -42,7 +46,9 @@ export default function NewSightingPage() {
   // Require login
   useEffect(() => {
     async function checkAuth() {
-      const { data: { user } } = await supabase.auth.getUser()
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
       if (!user) {
         router.push('/login')
         return
@@ -79,7 +85,7 @@ export default function NewSightingPage() {
       return
     }
 
-  async function loadStores() {
+    async function loadStores() {
       const { data } = await supabase
         .from('stores')
         .select('id, store_name, terminal, nearest_gate')
@@ -91,7 +97,6 @@ export default function NewSightingPage() {
     }
     loadStores()
   }, [airportId])
-
 
   async function handlePhotoChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0]
@@ -137,7 +142,9 @@ export default function NewSightingPage() {
 
     setLoading(true)
 
-    const { data: { user } } = await supabase.auth.getUser()
+    const {
+      data: { user },
+    } = await supabase.auth.getUser()
     if (!user) {
       setError(tSightings('mustBeLoggedInError'))
       setLoading(false)
@@ -208,21 +215,21 @@ export default function NewSightingPage() {
       </h1>
 
       <form onSubmit={handleSubmit}>
-      <div style={{ marginBottom: '16px' }}>
-                <label style={labelStyle}>{tSightings('airportLabel')}</label>
-                <Combobox
-                  options={airports.map((a) => ({
-                    id: a.id,
-                    label: `${a.iata_code} — ${a.airport_name}`,
-                  }))}
-                  value={airportId}
-                  onChange={setAirportId}
-                  placeholder={tSightings('searchAirports')}
-                  noMatchesLabel={tSightings('noMatches')}
-                />
-      </div>
+        <div style={{ marginBottom: '16px' }}>
+          <label style={labelStyle}>{tSightings('airportLabel')}</label>
+          <Combobox
+            options={airports.map((a) => ({
+              id: a.id,
+              label: `${a.iata_code} — ${a.airport_name}`,
+            }))}
+            value={airportId}
+            onChange={setAirportId}
+            placeholder={tSightings('searchAirports')}
+            noMatchesLabel={tSightings('noMatches')}
+          />
+        </div>
 
-      <div style={{ marginBottom: '16px' }}>
+        <div style={{ marginBottom: '16px' }}>
           <label style={labelStyle}>{tSightings('storeLabel')}</label>
           <select
             value={storeId}
@@ -236,14 +243,15 @@ export default function NewSightingPage() {
             </option>
             {stores.map((s) => (
               <option key={s.id} value={s.id}>
-                {s.store_name ?? tSightings('dutyFreeFallback')} — {tSightings('terminal')} {s.terminal}
+                {s.store_name ?? tSightings('dutyFreeFallback')} — {tSightings('terminal')}{' '}
+                {s.terminal}
                 {s.nearest_gate ? ` (${tSightings('nearGate')} ${s.nearest_gate})` : ''}
               </option>
             ))}
           </select>
-      </div>
+        </div>
 
-      <div style={{ marginBottom: '16px' }}>
+        <div style={{ marginBottom: '16px' }}>
           <label style={labelStyle}>{tSightings('productLabel')}</label>
           <Combobox
             options={products.map((p) => ({
@@ -255,7 +263,7 @@ export default function NewSightingPage() {
             placeholder={tSightings('searchProducts')}
             noMatchesLabel={tSightings('noMatches')}
           />
-      </div>
+        </div>
 
         <div style={{ marginBottom: '16px' }}>
           <label style={labelStyle}>{tSightings('dateLabel')}</label>
@@ -277,7 +285,7 @@ export default function NewSightingPage() {
             style={{ ...inputStyle, resize: 'vertical' }}
           />
         </div>
-<div style={{ marginBottom: '16px' }}>
+        <div style={{ marginBottom: '16px' }}>
           <label style={labelStyle}>{tSightings('photoLabel')}</label>
 
           <input
@@ -319,9 +327,7 @@ export default function NewSightingPage() {
             </p>
           )}
           {photoError && (
-            <p style={{ fontSize: '13px', color: '#b91c1c', marginTop: '6px' }}>
-              {photoError}
-            </p>
+            <p style={{ fontSize: '13px', color: '#b91c1c', marginTop: '6px' }}>{photoError}</p>
           )}
           {photoPreview && (
             <img
@@ -339,13 +345,13 @@ export default function NewSightingPage() {
         </div>
 
         {error && (
-          <p role="alert" style={errorStyle}>{error}</p>
+          <p role="alert" style={errorStyle}>
+            {error}
+          </p>
         )}
-        {success && (
-          <p style={successStyle}>{tSightings('sightingAdded')}</p>
-        )}
+        {success && <p style={successStyle}>{tSightings('sightingAdded')}</p>}
 
-<button
+        <button
           type="submit"
           disabled={loading || compressing}
           style={{

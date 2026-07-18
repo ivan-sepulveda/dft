@@ -9,7 +9,15 @@ import { createClient } from '@/lib/supabase/client'
 const AirportsMap = dynamic(() => import('@/components/AirportsMap'), {
   ssr: false,
   loading: () => (
-    <div style={{ height: '600px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888' }}>
+    <div
+      style={{
+        height: '600px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: '#888',
+      }}
+    >
       Loading map…
     </div>
   ),
@@ -50,7 +58,9 @@ export default function AirportsMapPage() {
 
   useEffect(() => {
     async function loadFavorites() {
-      const { data: { user } } = await supabase.auth.getUser()
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
       if (!user) return
 
       setUserId(user.id)
@@ -121,10 +131,16 @@ export default function AirportsMapPage() {
   const isMapView = pathname === '/airports/map'
 
   return (
-    <div style={{ padding: '32px', maxWidth: '900px', margin: '0 auto', width: '100%', boxSizing: 'border-box' }}>
-      <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '24px' }}>
-        {t('title')}
-      </h1>
+    <div
+      style={{
+        padding: '32px',
+        maxWidth: '900px',
+        margin: '0 auto',
+        width: '100%',
+        boxSizing: 'border-box',
+      }}
+    >
+      <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '24px' }}>{t('title')}</h1>
 
       <div style={{ display: 'flex', gap: '8px', marginBottom: '24px' }}>
         <Link

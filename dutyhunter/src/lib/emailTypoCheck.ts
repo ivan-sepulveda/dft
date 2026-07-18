@@ -35,7 +35,10 @@ export function checkEmailDomainTypo(email: string): string | null {
   const atIndex = email.lastIndexOf('@')
   if (atIndex === -1) return null
 
-  const domain = email.slice(atIndex + 1).toLowerCase().trim()
+  const domain = email
+    .slice(atIndex + 1)
+    .toLowerCase()
+    .trim()
   const suggestion = KNOWN_DOMAIN_TYPOS[domain]
 
   if (!suggestion) return null

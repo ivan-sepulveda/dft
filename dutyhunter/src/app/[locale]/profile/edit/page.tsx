@@ -18,7 +18,9 @@ export default function EditProfilePage() {
 
   useEffect(() => {
     async function loadProfile() {
-      const { data: { user } } = await supabase.auth.getUser()
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
 
       if (!user) {
         router.push('/login')
@@ -44,7 +46,9 @@ export default function EditProfilePage() {
     setError(null)
     setSuccess(false)
 
-    const { data: { user } } = await supabase.auth.getUser()
+    const {
+      data: { user },
+    } = await supabase.auth.getUser()
     if (!user) {
       router.push('/login')
       return

@@ -176,9 +176,7 @@ export default function ResetPasswordPage() {
                 {showPassword ? '🙈' : '👁️'}
               </button>
             </div>
-            <p style={{ fontSize: '12px', color: '#888', marginTop: '4px' }}>
-              {t('passwordHint')}
-            </p>
+            <p style={{ fontSize: '12px', color: '#888', marginTop: '4px' }}>{t('passwordHint')}</p>
           </div>
 
           {error && (

@@ -67,14 +67,16 @@ export default function ProductSightingsPage() {
     async function loadSightings() {
       const { data, error } = await supabase
         .from('sightings')
-        .select(`
+        .select(
+          `
           id,
           seen_at,
           notes,
           created_at,
           user_id,
           stores ( store_name, terminal, airports ( iata_code, airport_name ) )
-        `)
+        `
+        )
         .eq('product_id', productId)
         .order('created_at', { ascending: false })
 
@@ -95,10 +97,7 @@ export default function ProductSightingsPage() {
 
       const userIds = [...new Set(sightings.map((s) => s.user_id))]
 
-      const { data } = await supabase
-        .from('profiles')
-        .select('id, username')
-        .in('id', userIds)
+      const { data } = await supabase.from('profiles').select('id, username').in('id', userIds)
 
       const map: Record<string, string> = {}
       ;(data ?? []).forEach((row: { id: string; username: string | null }) => {

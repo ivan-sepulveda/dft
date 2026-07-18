@@ -17,9 +17,7 @@ export default async function CheckEmailPage() {
         <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '12px' }}>
           {t('checkEmailTitle')}
         </h1>
-        <p style={{ fontSize: '15px', color: '#666' }}>
-          {t('checkEmailBody')}
-        </p>
+        <p style={{ fontSize: '15px', color: '#666' }}>{t('checkEmailBody')}</p>
       </div>
     </div>
   )
