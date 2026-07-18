@@ -606,6 +606,36 @@ TRANSLATIONS = {
         },
     },
     "profile": {
+        "avatarLabel": {
+            "en": "Profile picture",
+            "es": "Foto de perfil",
+            "fr": "Photo de profil",
+            "it": "Immagine del profilo",
+        },
+        "changeAvatar": {
+            "en": "Change photo",
+            "es": "Cambiar foto",
+            "fr": "Changer la photo",
+            "it": "Cambia foto",
+        },
+        "uploadAvatar": {
+            "en": "Upload photo",
+            "es": "Subir foto",
+            "fr": "Télécharger une photo",
+            "it": "Carica foto",
+        },
+        "uploadingAvatar": {
+            "en": "Uploading…",
+            "es": "Subiendo…",
+            "fr": "Téléchargement…",
+            "it": "Caricamento…",
+        },
+        "avatarError": {
+            "en": "Could not upload that image. Try a different one.",
+            "es": "No se pudo subir esa imagen. Prueba con otra.",
+            "fr": "Impossible de télécharger cette image. Essayez-en une autre.",
+            "it": "Impossibile caricare quell'immagine. Prova con un'altra.",
+        },
         "editTitle": {
             "en": "Edit profile",
             "es": "Editar perfil",

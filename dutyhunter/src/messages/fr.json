@@ -109,6 +109,11 @@
     "empty": "Aucune observation signalée dans cet aéroport pour l'instant."
   },
   "profile": {
+    "avatarLabel": "Photo de profil",
+    "changeAvatar": "Changer la photo",
+    "uploadAvatar": "Télécharger une photo",
+    "uploadingAvatar": "Téléchargement…",
+    "avatarError": "Impossible de télécharger cette image. Essayez-en une autre.",
     "editTitle": "Modifier le profil",
     "displayNameLabel": "Nom affiché",
     "displayNameHint": "Ceci est affiché sur vos observations à la place de votre nom d'utilisateur.",

@@ -109,6 +109,11 @@
     "empty": "No sightings reported at this airport yet."
   },
   "profile": {
+    "avatarLabel": "Profile picture",
+    "changeAvatar": "Change photo",
+    "uploadAvatar": "Upload photo",
+    "uploadingAvatar": "Uploading…",
+    "avatarError": "Could not upload that image. Try a different one.",
     "editTitle": "Edit profile",
     "displayNameLabel": "Display name",
     "displayNameHint": "This is shown on your sightings instead of your username.",

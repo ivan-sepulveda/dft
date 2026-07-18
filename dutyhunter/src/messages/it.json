@@ -109,6 +109,11 @@
     "empty": "Ancora nessun avvistamento segnalato in questo aeroporto."
   },
   "profile": {
+    "avatarLabel": "Immagine del profilo",
+    "changeAvatar": "Cambia foto",
+    "uploadAvatar": "Carica foto",
+    "uploadingAvatar": "Caricamento…",
+    "avatarError": "Impossibile caricare quell'immagine. Prova con un'altra.",
     "editTitle": "Modifica profilo",
     "displayNameLabel": "Nome visualizzato",
     "displayNameHint": "Questo viene mostrato nei tuoi avvistamenti al posto del tuo nome utente.",

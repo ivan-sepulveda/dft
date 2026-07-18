@@ -109,6 +109,11 @@
     "empty": "Aún no hay avistamientos reportados en este aeropuerto."
   },
   "profile": {
+    "avatarLabel": "Foto de perfil",
+    "changeAvatar": "Cambiar foto",
+    "uploadAvatar": "Subir foto",
+    "uploadingAvatar": "Subiendo…",
+    "avatarError": "No se pudo subir esa imagen. Prueba con otra.",
     "editTitle": "Editar perfil",
     "displayNameLabel": "Nombre para mostrar",
     "displayNameHint": "Esto se muestra en tus avistamientos en lugar de tu nombre de usuario.",
