@@ -643,6 +643,20 @@ TRANSLATIONS = {
             "it": "Modifica profilo",
         },
     },
+    "productSightings": {
+        "backToProducts": {
+            "en": "Back to products",
+            "es": "Volver a productos",
+            "fr": "Retour aux produits",
+            "it": "Torna ai prodotti",
+        },
+        "empty": {
+            "en": "No sightings reported for this product yet.",
+            "es": "Aún no hay avistamientos reportados para este producto.",
+            "fr": "Aucune observation signalée pour ce produit pour l'instant.",
+            "it": "Ancora nessun avvistamento segnalato per questo prodotto.",
+        },
+    },
 }
 
 

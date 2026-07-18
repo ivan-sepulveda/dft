@@ -115,5 +115,9 @@
     "saving": "Guardando…",
     "saveSuccess": "¡Perfil actualizado!",
     "editProfileLink": "Editar perfil"
+  },
+  "productSightings": {
+    "backToProducts": "Volver a productos",
+    "empty": "Aún no hay avistamientos reportados para este producto."
   }
 }

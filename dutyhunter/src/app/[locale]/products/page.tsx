@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { createClient } from '@/lib/supabase/client'
 import Combobox from '@/components/Combobox'
+import { Link, useRouter } from '@/i18n/navigation'
 
 type Product = {
   id: string
@@ -17,7 +18,7 @@ export default function ProductsPage() {
   const supabase = createClient()
   const t = useTranslations('productsPage')
   const tAirportsPage = useTranslations('airportsPage')
-
+  const router = useRouter()
   const [products, setProducts] = useState<Product[]>([])
   const [searchId, setSearchId] = useState('')
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set())
@@ -144,15 +145,17 @@ export default function ProductsPage() {
           displayedProducts.map((product) => {
             const isFavorite = favoriteIds.has(product.id)
             return (
-              <div
-                key={product.id}
-                style={{
-                  border: '1px solid #333',
-                  borderRadius: '10px',
-                  overflow: 'hidden',
-                  position: 'relative',
-                }}
-              >
+            <div
+              key={product.id}
+              style={{
+                border: '1px solid #333',
+                borderRadius: '10px',
+                overflow: 'hidden',
+                position: 'relative',
+                cursor: 'pointer',
+              }}
+              onClick={() => router.push(`/products/${product.id}`)}
+            >
                 <div
                   style={{
                     width: '100%',

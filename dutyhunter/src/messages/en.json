@@ -115,5 +115,9 @@
     "saving": "Saving…",
     "saveSuccess": "Profile updated!",
     "editProfileLink": "Edit profile"
+  },
+  "productSightings": {
+    "backToProducts": "Back to products",
+    "empty": "No sightings reported for this product yet."
   }
 }
