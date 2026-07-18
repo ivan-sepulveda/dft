@@ -1,5 +1,6 @@
 {
   "nav": {
+    "brands": "Marques",
     "login": "Connexion",
     "signup": "S'inscrire",
     "logout": "Déconnexion",
@@ -119,5 +120,10 @@
   "productSightings": {
     "backToProducts": "Retour aux produits",
     "empty": "Aucune observation signalée pour ce produit pour l'instant."
+  },
+  "brandsPage": {
+    "title": "Marques",
+    "searchPlaceholder": "Rechercher des marques…",
+    "noResults": "Aucune marque trouvée."
   }
 }

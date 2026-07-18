@@ -1,5 +1,6 @@
 {
   "nav": {
+    "brands": "Brands",
     "login": "Log in",
     "signup": "Sign up",
     "logout": "Log out",
@@ -119,5 +120,10 @@
   "productSightings": {
     "backToProducts": "Back to products",
     "empty": "No sightings reported for this product yet."
+  },
+  "brandsPage": {
+    "title": "Brands",
+    "searchPlaceholder": "Search brands…",
+    "noResults": "No brands found."
   }
 }

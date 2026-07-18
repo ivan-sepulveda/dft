@@ -1,5 +1,6 @@
 {
   "nav": {
+    "brands": "Marchi",
     "login": "Accedi",
     "signup": "Registrati",
     "logout": "Esci",
@@ -119,5 +120,10 @@
   "productSightings": {
     "backToProducts": "Torna ai prodotti",
     "empty": "Ancora nessun avvistamento segnalato per questo prodotto."
+  },
+  "brandsPage": {
+    "title": "Marchi",
+    "searchPlaceholder": "Cerca marchi…",
+    "noResults": "Nessun marchio trovato."
   }
 }

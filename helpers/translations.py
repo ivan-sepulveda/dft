@@ -42,6 +42,12 @@ LOCALES = ["en", "es", "fr", "it"]
 # ------------------------------------------------------------------
 TRANSLATIONS = {
     "nav": {
+        "brands": {
+            "en": "Brands",
+            "es": "Marcas",
+            "fr": "Marques",
+            "it": "Marchi",
+        },
         "login": {
             "en": "Log in",
             "es": "Iniciar sesión",
@@ -655,6 +661,26 @@ TRANSLATIONS = {
             "es": "Aún no hay avistamientos reportados para este producto.",
             "fr": "Aucune observation signalée pour ce produit pour l'instant.",
             "it": "Ancora nessun avvistamento segnalato per questo prodotto.",
+        },
+    },
+    "brandsPage": {
+        "title": {
+            "en": "Brands",
+            "es": "Marcas",
+            "fr": "Marques",
+            "it": "Marchi",
+        },
+        "searchPlaceholder": {
+            "en": "Search brands…",
+            "es": "Buscar marcas…",
+            "fr": "Rechercher des marques…",
+            "it": "Cerca marchi…",
+        },
+        "noResults": {
+            "en": "No brands found.",
+            "es": "No se encontraron marcas.",
+            "fr": "Aucune marque trouvée.",
+            "it": "Nessun marchio trovato.",
         },
     },
 }

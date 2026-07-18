@@ -148,6 +148,20 @@ export default function Navbar() {
                 >
                   {tNav('airports')}
                 </Link>
+                <Link
+                  href="/brands"
+                  onClick={() => setBrowseOpen(false)}
+                  style={{
+                    display: 'block',
+                    padding: '10px 14px',
+                    fontSize: '14px',
+                    color: '#111',
+                    textDecoration: 'none',
+                    borderTop: '1px solid #f0f0f0',
+                  }}
+                >
+                  {tNav('brands')}
+                </Link>
               </div>
             )}
           </div>
