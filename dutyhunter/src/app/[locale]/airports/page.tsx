@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Link, usePathname, useRouter } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
-import Combobox from '@/components/Combobox'
+import { useMessages } from 'next-intl'
+import { normalizeForSearch } from '@/lib/normalizeForSearch'
 
 type Airport = {
   id: string
@@ -21,10 +22,12 @@ export default function AirportsPage() {
   const router = useRouter()
 
   const [airports, setAirports] = useState<Airport[]>([])
-  const [searchId, setSearchId] = useState('')
+  const [searchText, setSearchText] = useState('')
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set())
   const [userId, setUserId] = useState<string | null>(null)
   const [pendingIds, setPendingIds] = useState<Set<string>>(new Set())
+  const messages = useMessages() as any
+  const tLocation = (city: string) => messages.locations?.[city] ?? city
 
   useEffect(() => {
     async function loadAirports() {
@@ -111,8 +114,15 @@ export default function AirportsPage() {
     })
   }
 
-  const displayedAirports = searchId ? airports.filter((a) => a.id === searchId) : airports
-
+const displayedAirports = searchText.trim()
+  ? airports.filter((a) => {
+      const translatedCity = a.city ? tLocation(a.city) : ''
+      const haystack = normalizeForSearch(
+        `${a.iata_code} ${a.airport_name} ${a.city ?? ''} ${translatedCity}`
+      )
+      return haystack.includes(normalizeForSearch(searchText.trim()))
+    })
+  : airports
   const isListView = pathname === '/airports'
   const isMapView = pathname === '/airports/map'
 
@@ -156,15 +166,21 @@ export default function AirportsPage() {
       </div>
 
       <div style={{ marginBottom: '16px' }}>
-        <Combobox
-          options={airports.map((a) => ({
-            id: a.id,
-            label: `${a.iata_code} — ${a.airport_name}`,
-          }))}
-          value={searchId}
-          onChange={setSearchId}
+        <input
+          type="text"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
           placeholder={t('searchPlaceholder')}
-          noMatchesLabel={t('noResults')}
+          style={{
+            width: '100%',
+            padding: '10px 12px',
+            fontSize: '15px',
+            border: '1px solid #333',
+            borderRadius: '8px',
+            boxSizing: 'border-box',
+            background: '#1a1a1a',
+            color: '#fff',
+          }}
         />
       </div>
 
@@ -191,7 +207,7 @@ export default function AirportsPage() {
               >
                 <div>
                   <strong>{airport.iata_code}</strong> — {airport.airport_name}
-                  {airport.city ? ` — ${airport.city}` : ''}
+                  {airport.city ? ` — ${tLocation(airport.city)}` : ''}
                 </div>
 
                 <button

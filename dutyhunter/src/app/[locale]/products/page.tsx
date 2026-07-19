@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { createClient } from '@/lib/supabase/client'
-import Combobox from '@/components/Combobox'
 import { Link, useRouter } from '@/i18n/navigation'
+import { normalizeForSearch } from '@/lib/normalizeForSearch'
 
 type Product = {
   id: string
@@ -20,7 +20,7 @@ export default function ProductsPage() {
   const tAirportsPage = useTranslations('airportsPage')
   const router = useRouter()
   const [products, setProducts] = useState<Product[]>([])
-  const [searchId, setSearchId] = useState('')
+  const [searchText, setSearchText] = useState('')
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set())
   const [userId, setUserId] = useState<string | null>(null)
   const [pendingIds, setPendingIds] = useState<Set<string>>(new Set())
@@ -109,23 +109,36 @@ export default function ProductsPage() {
     })
   }
 
-  const displayedProducts = searchId ? products.filter((p) => p.id === searchId) : products
+const displayedProducts = searchText.trim()
+  ? products.filter((p) => {
+      const haystack = `${p.brands?.name ?? ''} ${p.product_line} ${p.variant ?? ''}`.toLowerCase()
+      return haystack.includes(searchText.trim().toLowerCase())
+    })
+  : products
 
   return (
     <div style={{ padding: '32px', maxWidth: '700px', margin: '0 auto' }}>
       <h1 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '24px' }}>{t('title')}</h1>
 
       <div style={{ marginBottom: '16px' }}>
-        <Combobox
-          options={products.map((p) => ({
-            id: p.id,
-            label: p.brands?.name ? `${p.brands.name} — ${p.product_line}` : p.product_line,
-          }))}
-          value={searchId}
-          onChange={setSearchId}
-          placeholder={t('searchPlaceholder')}
-          noMatchesLabel={t('noResults')}
-        />
+        <div style={{ marginBottom: '16px' }}>
+          <input
+            type="text"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            placeholder={t('searchPlaceholder')}
+            style={{
+              width: '100%',
+              padding: '10px 12px',
+              fontSize: '15px',
+              border: '1px solid #333',
+              borderRadius: '8px',
+              boxSizing: 'border-box',
+              background: '#1a1a1a',
+              color: '#fff',
+            }}
+          />
+        </div>
       </div>
 
       <div

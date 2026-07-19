@@ -3,6 +3,7 @@
 import { useEffect, useMemo } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import L from 'leaflet'
+import { useMessages } from 'next-intl'
 
 delete (L.Icon.Default.prototype as any)._getIconUrl
 L.Icon.Default.mergeOptions({
@@ -78,6 +79,9 @@ export default function AirportsMap({
   addLabel,
   removeLabel,
 }: AirportsMapProps) {
+  const messages = useMessages() as any
+  const tLocation = (city: string) => messages.locations?.[city] ?? city
+
   return (
     <div style={{ width: '100%', height: '600px' }}>
       <MapContainer
@@ -114,7 +118,7 @@ export default function AirportsMap({
                     {airport.city ? (
                       <>
                         <br />
-                        {airport.city}
+                        {tLocation(airport.city)}
                       </>
                     ) : null}
                   </div>
