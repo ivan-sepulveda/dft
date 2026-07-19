@@ -40,19 +40,33 @@ WITH CHECK (auth.uid() = id);
 
 -- Avatars are public-facing, like the rest of a profile — anyone
 -- can view them, logged in or not.
+DROP POLICY IF EXISTS "Anyone can view avatars"
+ON storage.objects;
+
 CREATE POLICY "Anyone can view avatars"
-  ON storage.objects FOR SELECT
-  USING (bucket_id = 'avatars');
+ON storage.objects
+FOR SELECT
+USING (bucket_id = 'avatars');
+
 
 -- Users can only upload into their own folder (first path segment
 -- must match their user id).
+DROP POLICY IF EXISTS "Users can upload their own avatar"
+ON storage.objects;
+
 CREATE POLICY "Users can upload their own avatar"
-  ON storage.objects FOR INSERT
-  TO authenticated
-  WITH CHECK (bucket_id = 'avatars' AND (storage.foldername(name))[1] = auth.uid()::text);
+ON storage.objects
+FOR INSERT
+TO authenticated
+WITH CHECK (bucket_id = 'avatars' AND (storage.foldername(name))[1] = auth.uid()::text);
+
 
 -- Users can only overwrite files in their own folder.
+DROP POLICY IF EXISTS "Users can update their own avatar"
+ON storage.objects;
+
 CREATE POLICY "Users can update their own avatar"
-  ON storage.objects FOR UPDATE
-  TO authenticated
-  USING (bucket_id = 'avatars' AND (storage.foldername(name))[1] = auth.uid()::text);
+ON storage.objects
+FOR UPDATE
+TO authenticated
+USING (bucket_id = 'avatars' AND (storage.foldername(name))[1] = auth.uid()::text);
