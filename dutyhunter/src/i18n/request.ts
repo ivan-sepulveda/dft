@@ -1,3 +1,4 @@
+// Resolves the active locale per request and loads its message file.
 import { getRequestConfig } from 'next-intl/server'
 
 const locales = ['en', 'es', 'fr', 'it']

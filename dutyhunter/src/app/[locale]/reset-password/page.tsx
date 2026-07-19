@@ -1,3 +1,4 @@
+// Server wrapper for the reset-password route — sets metadata, renders ResetPasswordClient.
 import type { Metadata } from 'next'
 import ResetPasswordClient from './ResetPasswordClient'
 

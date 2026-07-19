@@ -1,10 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 
-// Shown while a route segment's server payload is loading — i.e. during
-// navigation to a new route. Since every page in this app is a client
-// component that fetches its own data client-side (see each page's local
-// `loading` state), this only covers the brief moment between clicking a
-// link and the new route's JS mounting, not the Supabase fetch itself.
+// Loading fallback shown briefly during route navigation.
 export default async function Loading() {
   const t = await getTranslations('errors')
 

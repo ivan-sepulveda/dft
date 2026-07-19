@@ -1,5 +1,6 @@
 'use client'
 
+// Top nav bar — browse/account menus when signed in, login/signup links when not.
 import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Link, useRouter } from '@/i18n/navigation'

@@ -1,5 +1,6 @@
 'use client'
 
+// Shows every sighting reported at a specific airport.
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'

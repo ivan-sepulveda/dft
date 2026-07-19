@@ -1,3 +1,4 @@
+// Generates the sitemap for public pages, with per-locale hreflang alternates.
 import type { MetadataRoute } from 'next'
 import { routing } from '@/i18n/routing'
 import { createMetadataClient } from '@/lib/supabase/metadata'

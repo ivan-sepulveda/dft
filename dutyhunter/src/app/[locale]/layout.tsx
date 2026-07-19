@@ -8,6 +8,9 @@ import { routing } from '@/i18n/routing'
 import Navbar from '@/components/Navbar'
 import '../globals.css'
 
+// Root layout for all locale routes — validates the locale, sets up the
+// next-intl provider and fonts, and renders the navbar.
+
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],

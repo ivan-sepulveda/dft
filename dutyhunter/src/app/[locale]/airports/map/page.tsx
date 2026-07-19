@@ -1,3 +1,4 @@
+// Server wrapper for the airport map route — sets metadata, renders AirportsMapClient.
 import type { Metadata } from 'next'
 import AirportsMapClient from './AirportsMapClient'
 

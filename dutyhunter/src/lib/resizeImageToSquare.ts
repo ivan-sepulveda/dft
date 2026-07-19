@@ -1,3 +1,4 @@
+// Center-crops and scales an image file down to a square JPEG blob (used for avatars).
 export function resizeImageToSquare(file: File, size = 500): Promise<Blob> {
   return new Promise((resolve, reject) => {
     const img = new Image()

@@ -1,3 +1,4 @@
+// Server wrapper for the new-sighting route — sets metadata, renders NewSightingClient.
 import type { Metadata } from 'next'
 import NewSightingClient from './NewSightingClient'
 

@@ -1,3 +1,4 @@
+// Server wrapper for the brands list route — sets metadata, renders BrandsClient.
 import type { Metadata } from 'next'
 import BrandsClient from './BrandsClient'
 

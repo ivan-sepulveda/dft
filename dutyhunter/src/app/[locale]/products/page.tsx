@@ -1,3 +1,4 @@
+// Server wrapper for the products list route — sets metadata, renders ProductsClient.
 import type { Metadata } from 'next'
 import ProductsClient from './ProductsClient'
 

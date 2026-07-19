@@ -1,3 +1,4 @@
+// Server wrapper for the login route — sets metadata, renders LoginClient.
 import type { Metadata } from 'next'
 import LoginClient from './LoginClient'
 

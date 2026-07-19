@@ -1,3 +1,4 @@
+// Server wrapper for the landing route — sets metadata, renders LandingClient.
 import type { Metadata } from 'next'
 import LandingClient from './LandingClient'
 

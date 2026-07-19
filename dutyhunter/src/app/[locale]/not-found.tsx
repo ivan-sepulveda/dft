@@ -1,3 +1,4 @@
+// 404 page for unmatched routes within a locale.
 import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 

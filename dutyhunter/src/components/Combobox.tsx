@@ -1,5 +1,6 @@
 'use client'
 
+// Searchable dropdown select, used for airport/product pickers.
 import { useEffect, useRef, useState } from 'react'
 
 type ComboboxOption = {

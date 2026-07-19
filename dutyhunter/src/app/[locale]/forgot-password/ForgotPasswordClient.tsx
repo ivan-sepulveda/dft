@@ -1,5 +1,6 @@
 'use client'
 
+// Sends a password reset email to the address entered.
 import { useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'

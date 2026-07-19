@@ -1,3 +1,4 @@
+// Server wrapper for a single product's sightings page — sets metadata, renders ProductSightingsClient.
 import type { Metadata } from 'next'
 import { createMetadataClient } from '@/lib/supabase/metadata'
 import ProductSightingsClient from './ProductSightingsClient'

@@ -1,5 +1,6 @@
 'use client'
 
+// Signup form; blocks dummy/disposable emails before creating the account.
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { useRouter } from '@/i18n/navigation'

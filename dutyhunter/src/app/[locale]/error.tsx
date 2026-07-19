@@ -4,10 +4,7 @@ import { useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 
-// Next.js requires error.tsx to be a Client Component (error boundary).
-// It catches errors thrown by page.tsx and below — the [locale]/layout.tsx
-// above it (and its NextIntlClientProvider) stays mounted, so useTranslations
-// still works here.
+// Client-side error boundary for the locale segment.
 export default function Error({
   error,
   reset,

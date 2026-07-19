@@ -1,3 +1,4 @@
+// Controls search-engine crawling — allows public pages, disallows auth/session pages.
 import type { MetadataRoute } from 'next'
 import { SITE_URL } from '@/lib/siteUrl'
 

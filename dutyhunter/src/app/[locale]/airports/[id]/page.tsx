@@ -1,3 +1,4 @@
+// Server wrapper for a single airport's sightings page — sets metadata, renders AirportSightingsClient.
 import type { Metadata } from 'next'
 import { createMetadataClient } from '@/lib/supabase/metadata'
 import AirportSightingsClient from './AirportSightingsClient'

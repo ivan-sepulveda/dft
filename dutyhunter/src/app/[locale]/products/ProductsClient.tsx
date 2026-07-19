@@ -1,5 +1,6 @@
 'use client'
 
+// Products list page, with search and favoriting.
 import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { createClient } from '@/lib/supabase/client'

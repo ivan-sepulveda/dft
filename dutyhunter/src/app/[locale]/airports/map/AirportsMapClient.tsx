@@ -1,5 +1,6 @@
 'use client'
 
+// Airport map page, showing airports with coordinates on a Leaflet map.
 import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { useTranslations } from 'next-intl'

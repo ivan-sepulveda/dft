@@ -1,5 +1,6 @@
 'use client'
 
+// Landing page for signed-out visitors; redirects to /home if already logged in.
 import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Link, useRouter } from '@/i18n/navigation'

@@ -1,5 +1,6 @@
 'use client'
 
+// Login form; shows an "already signed in" card instead if a session exists.
 import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Link, useRouter } from '@/i18n/navigation'

@@ -1,5 +1,6 @@
 'use client'
 
+// Exchanges the reset-link code for a session, then lets the user set a new password.
 import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { useRouter } from '@/i18n/navigation'

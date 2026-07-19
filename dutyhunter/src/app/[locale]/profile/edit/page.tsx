@@ -1,3 +1,4 @@
+// Server wrapper for the profile edit route — sets metadata, renders EditProfileClient.
 import type { Metadata } from 'next'
 import EditProfileClient from './EditProfileClient'
 

@@ -1,5 +1,6 @@
 'use client'
 
+// Lets the signed-in user update their display name and avatar.
 import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { useRouter } from '@/i18n/navigation'

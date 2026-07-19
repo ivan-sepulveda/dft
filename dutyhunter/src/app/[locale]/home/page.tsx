@@ -1,3 +1,4 @@
+// Server wrapper for the home feed route — sets metadata, renders HomeClient.
 import type { Metadata } from 'next'
 import HomeClient from './HomeClient'
 

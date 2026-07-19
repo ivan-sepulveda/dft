@@ -1,5 +1,6 @@
 'use client'
 
+// Form for reporting a new duty-free sighting, with optional photo upload.
 import { useEffect, useRef, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { useRouter } from '@/i18n/navigation'

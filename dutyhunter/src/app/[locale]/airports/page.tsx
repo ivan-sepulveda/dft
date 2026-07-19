@@ -1,3 +1,4 @@
+// Server wrapper for the airports list route — sets metadata, renders AirportsClient.
 import type { Metadata } from 'next'
 import AirportsClient from './AirportsClient'
 

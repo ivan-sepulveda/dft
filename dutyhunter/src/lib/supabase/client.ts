@@ -1,3 +1,4 @@
+// Singleton browser-side Supabase client, used throughout the client components.
 import { createBrowserClient } from '@supabase/ssr'
 
 let client: ReturnType<typeof createBrowserClient> | undefined

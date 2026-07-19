@@ -1,3 +1,4 @@
+// Confirmation page shown after signup, telling the user to check their inbox.
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 

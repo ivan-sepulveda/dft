@@ -1,3 +1,4 @@
+// Server wrapper for the forgot-password route — sets metadata, renders ForgotPasswordClient.
 import type { Metadata } from 'next'
 import ForgotPasswordClient from './ForgotPasswordClient'
 

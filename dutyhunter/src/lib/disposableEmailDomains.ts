@@ -1,3 +1,4 @@
+// Blocklist of temp-mail provider domains, checked at signup.
 export const DISPOSABLE_EMAIL_DOMAINS = new Set([
   // Temp-Mail
   'temp-mail.org',

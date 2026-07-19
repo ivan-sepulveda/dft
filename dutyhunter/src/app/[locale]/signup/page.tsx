@@ -1,3 +1,4 @@
+// Server wrapper for the signup route — sets metadata, renders SignUpClient.
 import type { Metadata } from 'next'
 import SignUpClient from './SignUpClient'
 

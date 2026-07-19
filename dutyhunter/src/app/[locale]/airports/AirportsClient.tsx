@@ -1,5 +1,6 @@
 'use client'
 
+// Airports list page, with search and favoriting.
 import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Link, usePathname, useRouter } from '@/i18n/navigation'

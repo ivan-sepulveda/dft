@@ -1,5 +1,6 @@
 'use client'
 
+// Shows every sighting reported for a specific product.
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
