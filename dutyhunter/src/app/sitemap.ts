@@ -1,8 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { routing } from '@/i18n/routing'
 import { createMetadataClient } from '@/lib/supabase/metadata'
-
-const BASE_URL = 'https://dft.iesepulveda.com'
+import { SITE_URL as BASE_URL } from '@/lib/siteUrl'
 
 // Public, discoverable pages only. Auth pages (login, signup, etc.),
 // profile/edit, sightings/new, and the feed at /home are excluded — they
