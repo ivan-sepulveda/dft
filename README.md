@@ -138,6 +138,7 @@ Actively in development. Currently working:
 - [ ] Add per-page metadata, sitemap.ts, and robots.txt
 - [ ] Add a CI workflow — no .github/workflows
 - [ ] Add error.tsx / loading.tsx / not-found.tsx
+- [ ] Let users choose their language manually — locale is currently set only by browser auto-detection, with no in-app way to override it
 - [ ] Block known dummy/placeholder emails entirely (e.g. noemail@noemail.com, noreply@domain.com, test@test.com) — hard block, distinct from the soft-warning check below
 - [ ] Apply dummy/disposable email checks to future email-change flow — no such flow exists yet, but if a profile email-change feature gets built, it needs the same isDummyEmail()/isDisposableEmail() checks signup now has
 
