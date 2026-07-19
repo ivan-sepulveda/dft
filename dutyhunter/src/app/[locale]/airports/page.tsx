@@ -12,6 +12,7 @@ type Airport = {
   iata_code: string
   airport_name: string
   city: string | null
+  country_code: string | null
 }
 
 export default function AirportsPage() {
@@ -28,12 +29,13 @@ export default function AirportsPage() {
   const [pendingIds, setPendingIds] = useState<Set<string>>(new Set())
   const messages = useMessages() as any
   const tLocation = (city: string) => messages.locations?.[city] ?? city
+  const tCountry = (code: string) => messages.countries?.[code] ?? code
 
   useEffect(() => {
     async function loadAirports() {
       const { data } = await supabase
         .from('airports')
-        .select('id, iata_code, airport_name, city')
+        .select('id, iata_code, airport_name, city, country_code')
         .order('iata_code')
 
       setAirports(data ?? [])
@@ -114,15 +116,16 @@ export default function AirportsPage() {
     })
   }
 
-const displayedAirports = searchText.trim()
-  ? airports.filter((a) => {
+  const displayedAirports = searchText.trim()
+    ? airports.filter((a) => {
       const translatedCity = a.city ? tLocation(a.city) : ''
+      const translatedCountry = a.country_code ? tCountry(a.country_code) : ''
       const haystack = normalizeForSearch(
-        `${a.iata_code} ${a.airport_name} ${a.city ?? ''} ${translatedCity}`
+        `${a.iata_code} ${a.airport_name} ${a.city ?? ''} ${translatedCity} ${a.country_code ?? ''} ${translatedCountry}`
       )
       return haystack.includes(normalizeForSearch(searchText.trim()))
     })
-  : airports
+    : airports
   const isListView = pathname === '/airports'
   const isMapView = pathname === '/airports/map'
 
