@@ -127,7 +127,18 @@ Actively in development. Currently working:
 - Prettier formatting set up project-wide
 
 ## TODO
-- [ ] Set up Resend (or similar SMTP provider) for transactional emails — Supabase's default email sending has a low rate limit not suitable for production
+
+### High priority
 - [ ] Age verification at signup (18+) — add date_of_birth field, client-side validation, and a DB-level CHECK constraint on profiles
+- [ ] Set up Resend (or similar SMTP provider) for transactional emails — Supabase's default email sending has a low rate limit not suitable for production
+
+### Medium priority
 - [ ] Server-side check for disposable/typo emails at signup — current checks (emailTypoCheck.ts, disposableEmailDomains.ts) are client-side only and can be bypassed by editing the request directly
+- [ ] Add a "my favorites" page across airports/brands/products
+- [ ] Add per-page metadata, sitemap.ts, and robots.txt
+- [ ] Add a CI workflow — no .github/workflows
+- [ ] Add error.tsx / loading.tsx / not-found.tsx
+
+### Low priority
 - [ ] Flag suspicious/low-effort email local parts (e.g. 123@gmail.com, abc@gmail.com, 0@gmail.com) — soft warning, not a hard block, since these could be real emails
+- [ ] Switch <img> tags to next/image across the 6 image-heavy pages
