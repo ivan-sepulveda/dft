@@ -7,6 +7,8 @@
 
 -- ------------------------------------------------------------
 -- SFO — San Francisco International Airport
+-- Verified against flysfo.com/passengers/shop-dine-relax
+-- (all locations are DFS-operated).
 -- ------------------------------------------------------------
 INSERT INTO stores (airport_id, store_name, terminal, nearest_gate)
 SELECT a.id, 'DFS Duty Free', 'A', NULL
@@ -17,15 +19,27 @@ SELECT a.id, 'DFS Duty Free', 'G', NULL
 FROM airports a WHERE a.iata_code = 'SFO';
 
 INSERT INTO stores (airport_id, store_name, terminal, nearest_gate)
-SELECT a.id, 'DFS Duty Free', 'G', NULL
+SELECT a.id, 'DFS Duty Free', 'G', 'G4'
 FROM airports a WHERE a.iata_code = 'SFO';
 
 INSERT INTO stores (airport_id, store_name, terminal, nearest_gate)
-SELECT a.id, 'DFS Duty Free', 'A', NULL
+SELECT a.id, 'DFS Duty Free', '2', 'A8-A11'
 FROM airports a WHERE a.iata_code = 'SFO';
 
 INSERT INTO stores (airport_id, store_name, terminal, nearest_gate)
-SELECT a.id, 'DFS Duty Free', '2', NULL
+SELECT a.id, 'DFS Duty Free', '2', 'Retail Street'
+FROM airports a WHERE a.iata_code = 'SFO';
+
+INSERT INTO stores (airport_id, store_name, terminal, nearest_gate)
+SELECT a.id, 'DFS Watches, Jewelry & Accessories', 'A', 'A1'
+FROM airports a WHERE a.iata_code = 'SFO';
+
+INSERT INTO stores (airport_id, store_name, terminal, nearest_gate)
+SELECT a.id, 'DFS Watches, Jewelry & Accessories', 'G', 'G1'
+FROM airports a WHERE a.iata_code = 'SFO';
+
+INSERT INTO stores (airport_id, store_name, terminal, nearest_gate)
+SELECT a.id, 'DFS Sunglasses and Watches', 'A', 'A5'
 FROM airports a WHERE a.iata_code = 'SFO';
 
 -- ------------------------------------------------------------
@@ -97,10 +111,6 @@ SELECT a.id, 'DUTY ZERO by cdf', 'T1', 'Gate 5'
 FROM airports a WHERE a.iata_code = 'HKG';
 
 INSERT INTO stores (airport_id, store_name, terminal, nearest_gate)
-SELECT a.id, 'DUTY ZERO by cdf', 'T1', 'Gate 1'
-FROM airports a WHERE a.iata_code = 'HKG';
-
-INSERT INTO stores (airport_id, store_name, terminal, nearest_gate)
 SELECT a.id, 'DUTY ZERO by cdf', 'T1', 'Gate 201-230'
 FROM airports a WHERE a.iata_code = 'HKG';
 
@@ -114,10 +124,6 @@ FROM airports a WHERE a.iata_code = 'HKG';
 
 INSERT INTO stores (airport_id, store_name, terminal, nearest_gate)
 SELECT a.id, 'DUTY ZERO by cdf', 'T1', 'Sky Bridge'
-FROM airports a WHERE a.iata_code = 'HKG';
-
-INSERT INTO stores (airport_id, store_name, terminal, nearest_gate)
-SELECT a.id, 'DUTY ZERO by cdf', 'T1', 'Gate 5'
 FROM airports a WHERE a.iata_code = 'HKG';
 
 INSERT INTO stores (airport_id, store_name, terminal, nearest_gate)
@@ -145,10 +151,6 @@ FROM airports a WHERE a.iata_code = 'EWR';
 
 INSERT INTO stores (airport_id, store_name, terminal, nearest_gate)
 SELECT a.id, '3Sixty Duty Free & More', 'B', 'B51'
-FROM airports a WHERE a.iata_code = 'EWR';
-
-INSERT INTO stores (airport_id, store_name, terminal, nearest_gate)
-SELECT a.id, '3Sixty Duty Free and More', 'B', 'B60'
 FROM airports a WHERE a.iata_code = 'EWR';
 
 INSERT INTO stores (airport_id, store_name, terminal, nearest_gate)
