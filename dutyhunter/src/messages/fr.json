@@ -6,7 +6,8 @@
     "logout": "Déconnexion",
     "browse": "Parcourir",
     "products": "Produits",
-    "airports": "Aéroports"
+    "airports": "Aéroports",
+    "favorites": "Favoris"
   },
   "auth": {
     "emailTypoSuggestion": "Vouliez-vous dire",
@@ -140,6 +141,10 @@
     "tryAgain": "Réessayer",
     "backHome": "Retour à l'accueil",
     "loading": "Chargement…"
+  },
+  "favoritesPage": {
+    "title": "Mes favoris",
+    "empty": "Vous n'avez encore rien ajouté aux favoris. Parcourez les aéroports, produits ou marques et appuyez sur l'étoile pour les enregistrer ici."
   },
   "locations": {
     "Izmir": "Izmir",

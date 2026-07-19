@@ -84,6 +84,12 @@ TRANSLATIONS = {
             "fr": "Aéroports",
             "it": "Aeroporti",
         },
+        "favorites": {
+            "en": "Favorites",
+            "es": "Favoritos",
+            "fr": "Favoris",
+            "it": "Preferiti",
+        },
     },
     "auth": {
         "emailTypoSuggestion": {
@@ -761,6 +767,20 @@ TRANSLATIONS = {
             "es": "Cargando…",
             "fr": "Chargement…",
             "it": "Caricamento…",
+        },
+    },
+    "favoritesPage": {
+        "title": {
+            "en": "My Favorites",
+            "es": "Mis favoritos",
+            "fr": "Mes favoris",
+            "it": "I miei preferiti",
+        },
+        "empty": {
+            "en": "You haven't favorited anything yet. Browse airports, products, or brands and tap the star to save them here.",
+            "es": "Aún no has marcado nada como favorito. Explora aeropuertos, productos o marcas y toca la estrella para guardarlos aquí.",
+            "fr": "Vous n'avez encore rien ajouté aux favoris. Parcourez les aéroports, produits ou marques et appuyez sur l'étoile pour les enregistrer ici.",
+            "it": "Non hai ancora aggiunto nulla ai preferiti. Sfoglia aeroporti, prodotti o marchi e tocca la stella per salvarli qui.",
         },
     },
     "locations": {

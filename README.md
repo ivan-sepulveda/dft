@@ -134,8 +134,8 @@ Actively in development. Currently working:
 
 ### Medium priority
 - [ ] Server-side check for disposable/typo emails at signup — current checks (emailTypoCheck.ts, disposableEmailDomains.ts) are client-side only and can be bypassed by editing the request directly
-- [ ] Add a "my favorites" page across airports/brands/products
-- [ ] Add error.tsx / loading.tsx / not-found.tsx
+- [x] Add a "my favorites" page across airports/brands/products
+- [x] Fix product card favorite star also navigating to the sightings page — ProductsClient's star button doesn't call stopPropagation() like AirportsClient's does, so clicking the star both toggles the favorite and triggers the card's onClick navigation. Should only favorite/unfavorite on star click, only navigate on click elsewhere in the card
 - [ ] Let users choose their language manually — locale is currently set only by browser auto-detection, with no in-app way to override it
 - [ ] Apply dummy/disposable email checks to future email-change flow — no such flow exists yet, but if a profile email-change feature gets built, it needs the same isDummyEmail()/isDisposableEmail() checks signup now has
 

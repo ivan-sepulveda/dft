@@ -6,7 +6,8 @@
     "logout": "Log out",
     "browse": "Browse",
     "products": "Products",
-    "airports": "Airports"
+    "airports": "Airports",
+    "favorites": "Favorites"
   },
   "auth": {
     "emailTypoSuggestion": "Did you mean",
@@ -140,6 +141,10 @@
     "tryAgain": "Try again",
     "backHome": "Back to home",
     "loading": "Loading…"
+  },
+  "favoritesPage": {
+    "title": "My Favorites",
+    "empty": "You haven't favorited anything yet. Browse airports, products, or brands and tap the star to save them here."
   },
   "locations": {
     "Izmir": "Izmir",

@@ -6,7 +6,8 @@
     "logout": "Esci",
     "browse": "Esplora",
     "products": "Prodotti",
-    "airports": "Aeroporti"
+    "airports": "Aeroporti",
+    "favorites": "Preferiti"
   },
   "auth": {
     "emailTypoSuggestion": "Intendevi",
@@ -140,6 +141,10 @@
     "tryAgain": "Riprova",
     "backHome": "Torna alla home",
     "loading": "Caricamento…"
+  },
+  "favoritesPage": {
+    "title": "I miei preferiti",
+    "empty": "Non hai ancora aggiunto nulla ai preferiti. Sfoglia aeroporti, prodotti o marchi e tocca la stella per salvarli qui."
   },
   "locations": {
     "Izmir": "Smirne",

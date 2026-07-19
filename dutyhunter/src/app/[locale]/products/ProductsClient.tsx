@@ -194,7 +194,10 @@ export default function ProductsClient() {
 
                 <button
                   type="button"
-                  onClick={() => toggleFavorite(product.id)}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    toggleFavorite(product.id)
+                  }}
                   disabled={!userId}
                   aria-label={
                     isFavorite

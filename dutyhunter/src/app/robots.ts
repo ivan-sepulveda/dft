@@ -16,6 +16,7 @@ const DISALLOWED_PATHS = [
   '/home',
   '/profile',
   '/sightings/new',
+  '/favorites',
 ]
 
 export default function robots(): MetadataRoute.Robots {

@@ -6,7 +6,8 @@
     "logout": "Cerrar sesión",
     "browse": "Explorar",
     "products": "Productos",
-    "airports": "Aeropuertos"
+    "airports": "Aeropuertos",
+    "favorites": "Favoritos"
   },
   "auth": {
     "emailTypoSuggestion": "¿Quisiste decir",
@@ -140,6 +141,10 @@
     "tryAgain": "Intentar de nuevo",
     "backHome": "Volver al inicio",
     "loading": "Cargando…"
+  },
+  "favoritesPage": {
+    "title": "Mis favoritos",
+    "empty": "Aún no has marcado nada como favorito. Explora aeropuertos, productos o marcas y toca la estrella para guardarlos aquí."
   },
   "locations": {
     "Izmir": "Esmirna",

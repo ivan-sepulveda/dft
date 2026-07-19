@@ -221,6 +221,21 @@ export default function Navbar() {
                 </Link>
 
                 <Link
+                  href="/favorites"
+                  onClick={() => setMenuOpen(false)}
+                  style={{
+                    display: 'block',
+                    padding: '10px 14px',
+                    fontSize: '14px',
+                    color: '#111',
+                    textDecoration: 'none',
+                    borderTop: '1px solid #f0f0f0',
+                  }}
+                >
+                  {tNav('favorites')}
+                </Link>
+
+                <Link
                   href="/profile/edit"
                   onClick={() => setMenuOpen(false)}
                   style={{
