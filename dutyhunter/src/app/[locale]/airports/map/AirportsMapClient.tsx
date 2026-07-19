@@ -7,6 +7,7 @@ import { useTranslations } from 'next-intl'
 import { Link, usePathname } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { useMessages } from 'next-intl'
+import type { LocaleMessages } from '@/lib/localeMessages'
 
 const AirportsMap = dynamic(() => import('@/components/AirportsMap'), {
   ssr: false,
@@ -38,7 +39,7 @@ export default function AirportsMapClient() {
   const supabase = createClient()
   const t = useTranslations('airportsPage')
   const pathname = usePathname()
-  const messages = useMessages() as any
+  const messages = useMessages() as unknown as LocaleMessages
   const tLocation = (city: string) => messages.locations?.[city] ?? city
   const [airports, setAirports] = useState<Airport[]>([])
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set())

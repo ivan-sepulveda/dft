@@ -7,6 +7,7 @@ import { Link, usePathname, useRouter } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { useMessages } from 'next-intl'
 import { normalizeForSearch } from '@/lib/normalizeForSearch'
+import type { LocaleMessages } from '@/lib/localeMessages'
 
 type Airport = {
   id: string
@@ -28,7 +29,7 @@ export default function AirportsClient() {
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set())
   const [userId, setUserId] = useState<string | null>(null)
   const [pendingIds, setPendingIds] = useState<Set<string>>(new Set())
-  const messages = useMessages() as any
+  const messages = useMessages() as unknown as LocaleMessages
   const tLocation = (city: string) => messages.locations?.[city] ?? city
   const tCountry = (code: string) => messages.countries?.[code] ?? code
 

@@ -30,7 +30,11 @@ export default function Combobox({
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    // Keeps the visible input text in sync whenever `value` changes from
+    // outside (e.g. the parent resets the selection) — distinct from the
+    // user typing, which updates `query` directly in the input's onChange.
     const selected = options.find((o) => o.id === value)
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setQuery(selected ? selected.label : '')
   }, [value, options])
 

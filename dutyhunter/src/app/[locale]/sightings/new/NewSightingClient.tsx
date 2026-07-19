@@ -80,13 +80,13 @@ export default function NewSightingClient() {
 
   // Load stores whenever the selected airport changes
   useEffect(() => {
-    if (!airportId) {
-      setStores([])
-      setStoreId('')
-      return
-    }
-
     async function loadStores() {
+      if (!airportId) {
+        setStores([])
+        setStoreId('')
+        return
+      }
+
       const { data } = await supabase
         .from('stores')
         .select('id, store_name, terminal, nearest_gate')
