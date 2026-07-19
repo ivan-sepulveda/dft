@@ -1,4 +1,10 @@
+import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
+
+export const metadata: Metadata = {
+  title: 'Check Your Email | Duty Hunter',
+  description: 'Confirm your email address to finish creating your account.',
+}
 
 export default async function CheckEmailPage() {
   const t = await getTranslations('auth')
