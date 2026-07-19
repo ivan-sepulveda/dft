@@ -23,7 +23,14 @@ jobs:
           cache: npm
           cache-dependency-path: dutyhunter/package-lock.json
 
-      - run: npm ci
+      # Using `npm install` instead of `npm ci` here: @swc/core ships a
+      # separate prebuilt binary package per platform, and each platform
+      # variant can declare its own dependency version. A lock file
+      # generated on macOS only fully resolves the darwin binary's deps,
+      # not Linux's — so `npm ci` fails on this Ubuntu runner even right
+      # after a clean local `npm install`. `npm install` re-resolves
+      # instead of demanding an exact match to the (incomplete) lock file.
+      - run: npm install
 
       - run: npm run format:check
 
