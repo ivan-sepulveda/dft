@@ -132,6 +132,15 @@
     "searchPlaceholder": "Rechercher des marques…",
     "noResults": "Aucune marque trouvée."
   },
+  "errors": {
+    "notFoundTitle": "Page introuvable",
+    "notFoundBody": "La page que vous recherchez n'existe pas ou a peut-être été déplacée.",
+    "genericErrorTitle": "Une erreur s'est produite",
+    "genericErrorBody": "Une erreur inattendue s'est produite. Veuillez réessayer.",
+    "tryAgain": "Réessayer",
+    "backHome": "Retour à l'accueil",
+    "loading": "Chargement…"
+  },
   "locations": {
     "Izmir": "Izmir",
     "Luxembourg": "Luxembourg",

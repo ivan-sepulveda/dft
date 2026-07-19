@@ -132,6 +132,15 @@
     "searchPlaceholder": "Buscar marcas…",
     "noResults": "No se encontraron marcas."
   },
+  "errors": {
+    "notFoundTitle": "Página no encontrada",
+    "notFoundBody": "La página que buscas no existe o pudo haber sido movida.",
+    "genericErrorTitle": "Algo salió mal",
+    "genericErrorBody": "Ocurrió un error inesperado. Por favor intenta de nuevo.",
+    "tryAgain": "Intentar de nuevo",
+    "backHome": "Volver al inicio",
+    "loading": "Cargando…"
+  },
   "locations": {
     "Izmir": "Esmirna",
     "Luxembourg": "Luxemburgo",

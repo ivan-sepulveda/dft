@@ -132,6 +132,15 @@
     "searchPlaceholder": "Cerca marchi…",
     "noResults": "Nessun marchio trovato."
   },
+  "errors": {
+    "notFoundTitle": "Pagina non trovata",
+    "notFoundBody": "La pagina che cerchi non esiste o potrebbe essere stata spostata.",
+    "genericErrorTitle": "Qualcosa è andato storto",
+    "genericErrorBody": "Si è verificato un errore imprevisto. Riprova.",
+    "tryAgain": "Riprova",
+    "backHome": "Torna alla home",
+    "loading": "Caricamento…"
+  },
   "locations": {
     "Izmir": "Smirne",
     "Luxembourg": "Lussemburgo",

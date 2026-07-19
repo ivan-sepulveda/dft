@@ -719,6 +719,50 @@ TRANSLATIONS = {
             "it": "Nessun marchio trovato.",
         },
     },
+    "errors": {
+        "notFoundTitle": {
+            "en": "Page not found",
+            "es": "Página no encontrada",
+            "fr": "Page introuvable",
+            "it": "Pagina non trovata",
+        },
+        "notFoundBody": {
+            "en": "The page you're looking for doesn't exist or may have been moved.",
+            "es": "La página que buscas no existe o pudo haber sido movida.",
+            "fr": "La page que vous recherchez n'existe pas ou a peut-être été déplacée.",
+            "it": "La pagina che cerchi non esiste o potrebbe essere stata spostata.",
+        },
+        "genericErrorTitle": {
+            "en": "Something went wrong",
+            "es": "Algo salió mal",
+            "fr": "Une erreur s'est produite",
+            "it": "Qualcosa è andato storto",
+        },
+        "genericErrorBody": {
+            "en": "An unexpected error occurred. Please try again.",
+            "es": "Ocurrió un error inesperado. Por favor intenta de nuevo.",
+            "fr": "Une erreur inattendue s'est produite. Veuillez réessayer.",
+            "it": "Si è verificato un errore imprevisto. Riprova.",
+        },
+        "tryAgain": {
+            "en": "Try again",
+            "es": "Intentar de nuevo",
+            "fr": "Réessayer",
+            "it": "Riprova",
+        },
+        "backHome": {
+            "en": "Back to home",
+            "es": "Volver al inicio",
+            "fr": "Retour à l'accueil",
+            "it": "Torna alla home",
+        },
+        "loading": {
+            "en": "Loading…",
+            "es": "Cargando…",
+            "fr": "Chargement…",
+            "it": "Caricamento…",
+        },
+    },
     "locations": {
         "Izmir": {"en": "Izmir", "es": "Esmirna", "fr": "Izmir", "it": "Smirne"},
         "Luxembourg": {"en": "Luxembourg", "es": "Luxemburgo", "fr": "Luxembourg", "it": "Lussemburgo"},
