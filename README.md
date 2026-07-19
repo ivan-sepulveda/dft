@@ -135,13 +135,9 @@ Actively in development. Currently working:
 ### Medium priority
 - [ ] Server-side check for disposable/typo emails at signup — current checks (emailTypoCheck.ts, disposableEmailDomains.ts) are client-side only and can be bypassed by editing the request directly
 - [ ] Add a "my favorites" page across airports/brands/products
-- [ ] Add per-page metadata, sitemap.ts, and robots.txt
-- [ ] Add a CI workflow — no .github/workflows
 - [ ] Add error.tsx / loading.tsx / not-found.tsx
 - [ ] Let users choose their language manually — locale is currently set only by browser auto-detection, with no in-app way to override it
-- [ ] Block known dummy/placeholder emails entirely (e.g. noemail@noemail.com, noreply@domain.com, test@test.com) — hard block, distinct from the soft-warning check below
 - [ ] Apply dummy/disposable email checks to future email-change flow — no such flow exists yet, but if a profile email-change feature gets built, it needs the same isDummyEmail()/isDisposableEmail() checks signup now has
 
 ### Low priority
 - [ ] Flag suspicious/low-effort email local parts (e.g. 123@gmail.com, abc@gmail.com, 0@gmail.com) — soft warning, not a hard block, since these could be real emails
-- [ ] Switch <img> tags to next/image across the 6 image-heavy pages
