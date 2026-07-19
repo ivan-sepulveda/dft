@@ -6,6 +6,7 @@ import { useParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
+import Image from 'next/image'
 
 type Product = {
   id: string
@@ -155,10 +156,12 @@ export default function ProductSightingsClient() {
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px', margin: '12px 0 24px' }}>
         {product?.image_url && (
-          <img
+          <Image
             src={product.image_url}
             alt={product.product_line}
-            style={{ width: '56px', height: '56px', objectFit: 'cover', borderRadius: '8px' }}
+            width={56}
+            height={56}
+            style={{ objectFit: 'cover', borderRadius: '8px' }}
           />
         )}
         <h1 style={{ fontSize: '24px', fontWeight: 600 }}>
@@ -199,18 +202,19 @@ export default function ProductSightingsClient() {
                   }}
                 >
                   {photoUrls[sighting.id].map((url, i) => (
-                    <img
+                    <div
                       key={i}
-                      src={url}
-                      alt=""
                       style={{
+                        position: 'relative',
                         width: '100px',
                         height: '100px',
-                        objectFit: 'cover',
                         borderRadius: '8px',
+                        overflow: 'hidden',
                         flexShrink: 0,
                       }}
-                    />
+                    >
+                      <Image src={url} alt="" fill sizes="100px" style={{ objectFit: 'cover' }} />
+                    </div>
                   ))}
                 </div>
               )}

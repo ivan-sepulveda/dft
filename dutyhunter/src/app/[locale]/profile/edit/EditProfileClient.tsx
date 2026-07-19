@@ -7,6 +7,7 @@ import { useRouter } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { useRef } from 'react'
 import { resizeImageToSquare } from '@/lib/resizeImageToSquare'
+import Image from 'next/image'
 
 export default function EditProfileClient() {
   const router = useRouter()
@@ -159,6 +160,7 @@ export default function EditProfileClient() {
               height: '100px',
               borderRadius: '50%',
               overflow: 'hidden',
+              position: 'relative',
               margin: '0 auto 12px',
               background: '#1a1a1a',
               display: 'flex',
@@ -167,11 +169,7 @@ export default function EditProfileClient() {
             }}
           >
             {avatarUrl ? (
-              <img
-                src={avatarUrl}
-                alt=""
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
+              <Image src={avatarUrl} alt="" fill sizes="100px" style={{ objectFit: 'cover' }} />
             ) : (
               <span style={{ fontSize: '32px', color: '#666' }}>👤</span>
             )}

@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 import { createClient } from '@/lib/supabase/client'
 import { Link, useRouter } from '@/i18n/navigation'
 import { normalizeForSearch } from '@/lib/normalizeForSearch'
+import Image from 'next/image'
 
 type Product = {
   id: string
@@ -172,16 +173,19 @@ export default function ProductsClient() {
                     width: '100%',
                     aspectRatio: '1 / 1',
                     background: '#1a1a1a',
+                    position: 'relative',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}
                 >
                   {product.image_url ? (
-                    <img
+                    <Image
                       src={product.image_url}
                       alt={product.product_line}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      fill
+                      sizes="(max-width: 640px) 45vw, 200px"
+                      style={{ objectFit: 'cover' }}
                     />
                   ) : (
                     <span style={{ fontSize: '12px', color: '#666' }}>{t('noImage')}</span>

@@ -6,6 +6,7 @@ import { useParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
+import Image from 'next/image'
 
 type SightingPhoto = {
   id: string
@@ -205,18 +206,19 @@ export default function AirportSightingsClient() {
                   }}
                 >
                   {photoUrls[sighting.id].map((url, i) => (
-                    <img
+                    <div
                       key={i}
-                      src={url}
-                      alt=""
                       style={{
+                        position: 'relative',
                         width: '100px',
                         height: '100px',
-                        objectFit: 'cover',
                         borderRadius: '8px',
+                        overflow: 'hidden',
                         flexShrink: 0,
                       }}
-                    />
+                    >
+                      <Image src={url} alt="" fill sizes="100px" style={{ objectFit: 'cover' }} />
+                    </div>
                   ))}
                 </div>
               )}

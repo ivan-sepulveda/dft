@@ -331,6 +331,10 @@ export default function NewSightingClient() {
             <p style={{ fontSize: '13px', color: '#b91c1c', marginTop: '6px' }}>{photoError}</p>
           )}
           {photoPreview && (
+            // photoPreview is a local blob: URL (URL.createObjectURL), not a
+            // remote image — next/image's optimizer can't fetch it, so this
+            // stays a plain <img> rather than forcing an ill-fitting Image.
+            // eslint-disable-next-line @next/next/no-img-element
             <img
               src={photoPreview}
               alt="Preview"
