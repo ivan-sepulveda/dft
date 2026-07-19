@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl'
 import { useRouter } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { isDisposableEmail } from '@/lib/disposableEmailDomains'
+import { isDummyEmail } from '@/lib/dummyEmailAddresses'
 
 export default function SignUpPage() {
   const router = useRouter()
@@ -23,6 +24,12 @@ export default function SignUpPage() {
     e.preventDefault()
     setLoading(true)
     setError(null)
+
+    if (isDummyEmail(email)) {
+      setError(tAuth('dummyEmailError'))
+      setLoading(false)
+      return
+    }
 
     if (isDisposableEmail(email)) {
       setError(tAuth('disposableEmailError'))

@@ -28,6 +28,7 @@
     "resetSuccessTitle": "Mot de passe mis à jour !",
     "resetSuccessBody": "Redirection en cours…",
     "disposableEmailError": "Veuillez utiliser une adresse e-mail réelle, pas une adresse temporaire.",
+    "dummyEmailError": "Veuillez utiliser une adresse e-mail réelle à laquelle vous avez accès.",
     "loginTitle": "Connectez-vous à Duty Hunter",
     "showPassword": "Afficher le mot de passe",
     "hidePassword": "Masquer le mot de passe",

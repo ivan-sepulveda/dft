@@ -28,6 +28,7 @@
     "resetSuccessTitle": "¡Contraseña actualizada!",
     "resetSuccessBody": "Redirigiendo…",
     "disposableEmailError": "Por favor usa una dirección de correo real, no una temporal.",
+    "dummyEmailError": "Por favor usa una dirección de correo real a la que puedas acceder.",
     "loginTitle": "Inicia sesión en Duty Hunter",
     "showPassword": "Mostrar contraseña",
     "hidePassword": "Ocultar contraseña",

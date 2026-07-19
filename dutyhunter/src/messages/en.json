@@ -28,6 +28,7 @@
     "resetSuccessTitle": "Password updated!",
     "resetSuccessBody": "Redirecting you now…",
     "disposableEmailError": "Please use a real email address, not a temporary one.",
+    "dummyEmailError": "Please use a real email address you can access.",
     "loginTitle": "Log in to Duty Hunter",
     "showPassword": "Show password",
     "hidePassword": "Hide password",

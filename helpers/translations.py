@@ -200,6 +200,12 @@ TRANSLATIONS = {
             "fr": "Veuillez utiliser une adresse e-mail réelle, pas une adresse temporaire.",
             "it": "Utilizza un indirizzo e-mail reale, non uno temporaneo.",
         },
+        "dummyEmailError": {
+            "en": "Please use a real email address you can access.",
+            "es": "Por favor usa una dirección de correo real a la que puedas acceder.",
+            "fr": "Veuillez utiliser une adresse e-mail réelle à laquelle vous avez accès.",
+            "it": "Utilizza un indirizzo e-mail reale a cui puoi accedere.",
+        },
         "loginTitle": {
             "en": "Log in to Duty Hunter",
             "es": "Inicia sesión en Duty Hunter",
