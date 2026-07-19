@@ -28,6 +28,8 @@ TO authenticated;
 GRANT SELECT, INSERT, DELETE ON public.sighting_photos
 TO authenticated;
 
+-- Favorites: authenticated users can read, add, and remove their own
+-- favorites (RLS policies restrict all three to their own rows).
 GRANT SELECT, INSERT, DELETE ON favorite_brands TO authenticated;
 GRANT SELECT, INSERT, DELETE ON favorite_products TO authenticated;
 GRANT SELECT, INSERT, DELETE ON favorite_airports TO authenticated;

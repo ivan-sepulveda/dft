@@ -55,6 +55,7 @@ CHECK (
     size_unit IS NULL
     OR size_unit IN (
         'mL',
+        'ml',
         'L',
         'g',
         'kg',
